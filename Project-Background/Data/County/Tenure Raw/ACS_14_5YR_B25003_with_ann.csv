@@ -1,0 +1,5 @@
+GEO.id,GEO.id2,GEO.display-label,HD01_VD01,HD02_VD01,HD01_VD02,HD02_VD02,HD01_VD03,HD02_VD03
+Id,Id2,Geography,Estimate; Total:,Margin of Error; Total:,Estimate; Total: - Owner occupied,Margin of Error; Total: - Owner occupied,Estimate; Total: - Renter occupied,Margin of Error; Total: - Renter occupied
+0500000US41005,41005,"Clackamas County, Oregon",147736,821,101198,1093,46538,1098
+0500000US41051,41051,"Multnomah County, Oregon",308595,1340,165606,1855,142989,1754
+0500000US41067,41067,"Washington County, Oregon",203901,1237,123661,1302,80240,1373

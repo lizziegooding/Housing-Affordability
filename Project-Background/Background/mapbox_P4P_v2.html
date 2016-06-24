@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Oregon P4P</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+/*Background menu; will be shown when layers are not active*/
+.menu-ui {
+  background:#fff; /*white; inactive button color*/
+  position:absolute;
+  top:10px;right:10px;
+  z-index:1;
+  border-radius:3px;
+  width:80px;
+  border:1px solid rgba(0,0,0,0.4); /*black; outside menu border*/
+  }
+  .menu-ui a {
+    font-size:12px;
+    color:#404040; /*dark gray; inactive text color*/
+    display:block;
+    margin:0;padding:0;
+    padding:5px;
+    text-decoration:none;
+    border-bottom:1px solid rgba(0,0,0,0.25); /*black; internal menu border*/
+    text-align:center;
+    font-family: 'Raleway'
+    }
+    .menu-ui a:first-child {
+      border-radius:3px 3px 0 0;
+      }
+    .menu-ui a:last-child {
+      border:none;
+      border-radius:0 0 3px 3px;
+      }
+    .menu-ui a:hover {
+      background:#f8f8f8; /*off-white; inactive button fill*/
+      color:#404040; /*dark gray; inactive hover text color*/
+      }
+    .menu-ui a.active {
+      background:#A60F14; /*red; active button fill*/
+      color:#FFF; /*white; active text fill*/
+      }
+      .menu-ui a.active:hover {
+        background:#3074a4; /*blue; active hover button fill*/
+        }
+</style>
+<nav id='menu-ui' class='menu-ui'></nav>
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiZWNvbnciLCJhIjoiWUZxcXRMVSJ9.tmmSP9rEmDmhB54B8ARtQQ';
+var map = L.mapbox.map('map').setView([45.4,-120], 7);
+var layers = document.getElementById('menu-ui');
+
+addLayer(L.mapbox.tileLayer('mapbox.dark'), 'Basemap', 1); //Basemap
+addLayer(L.mapbox.tileLayer('econw.m64lb53c'), '95-100%', 2); //95-100
+addLayer(L.mapbox.tileLayer('econw.m6543n1j'), '80-100%', 3);//80-100%
+addLayer(L.mapbox.tileLayer('econw.m65416e4'), '61-80%', 4); //61-80%
+addLayer(L.mapbox.tileLayer('econw.m653bpja'), '41-60%', 5); //41-60%
+addLayer(L.mapbox.tileLayer('econw.m656e0m7'), '21-40%', 6); //0-20%
+addLayer(L.mapbox.tileLayer('econw.m6531en0'), '0-20%', 7); //0-20%
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+</script>
+
+
+</body>
+</html>
