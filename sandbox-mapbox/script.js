@@ -17,25 +17,6 @@ map.on('load', function () {
     'data': SFaffordHex
   });
 
-  // map.on('load', function() {
-  //     // Add marker data as a new GeoJSON source.
-  //     map.addSource('markers', {
-  //         'type': 'geojson',
-  //         'data': markers
-  //     });
-//Adds data to map
-  // map.addLayer({
-  //   'id': 'markers',
-  //   'type': 'symbol',
-  //   'source': 'markers',
-  //   'layout': {
-  //     'icon-image': '{marker-symbol}-15',
-  //     'text-field': '{title}',
-  //     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-  //     'text-offset': [0, 0.6],
-  //     'text-anchor': 'top'
-  //   }
-  // });
   //Add loaded data and style
   map.addLayer({
     'id': 'SFaffordHex',
@@ -62,7 +43,3 @@ map.on('load', function () {
       'fill-opacity': 0.75 }
   });
 });
-
-//addSource(id, source):
-//id (string) ID of the source. Must not be used by any existing source.
-// source (Object) source specification, following the Mapbox GL Style Reference
