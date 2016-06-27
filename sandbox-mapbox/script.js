@@ -3,43 +3,46 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsd
 //Initialize a new map object inside of the #map div
 var map = new mapboxgl.Map({
   container: 'map', //HTML element to initialize the map in (or element id as string)
-  minZoom: 8, //Default of 0 (world)
-  maxZoom: 12, //Default of 20 (local)
-  center: [-122.6765, 45.5231], //LatLng array in decimal degrees
+  zoom: 9,
+  // minZoom: 1, //Default of 0 (world)
+  // maxZoom: 12, //Default of 20 (local)
+  center: [-95.7129, 37.0902], //LatLng array in decimal degrees
   style: 'mapbox://styles/mapbox/outdoors-v9' //Basemap style; can be a preset from mapbox or a user defined style
 });
 
 //Once the map has loaded
 map.on('load', function () {
-  //Create new GeoJSON layer 'SFaffordHex'
-  map.addSource('SFaffordHex', {
+  //Create new GeoJSON layer 'County_MHV_WGS84'
+  map.addSource('County_MHV_WGS84', {
     'type': 'geojson',
-    'data': SFaffordHex
+    'data': 'County_MHV_WGS84.geojson'
   });
 
   //Add loaded data and style
   map.addLayer({
-    'id': 'SFaffordHex',
+    'id': 'County_MHV_WGS84',
     'type': 'fill',
-    'source': 'SFaffordHex',
-    'source-layer': 'SFaffordHex',
+    'source': 'County_MHV_WGS84',
+    'source-layer': 'County_MHV_WGS84',
+    'layout': { visibility: 'visible'},
     'paint': {
-      'fill-outline-color': '#484896',
-      'fill-color': '#6e599f',
+      'fill-outline-color': '#FFF',
+      // 'fill-color': '#6e599f',
       'fill-color': {
-        property: 'affd20_14',
+        property: 'Median_Hom',
         stops: [
                 [0, '#F2F12D'],
-                [0.2, '#EED322'],
-                [0.3, '#E6B71E'],
-                [0.4, '#DA9C20'],
-                [0.5, '#CA8323'],
-                [0.6, '#B86B25'],
-                [0.7, '#A25626'],
-                [0.8, '#8B4225'],
-                [0.9, '#723122']
+                [50000, '#EED322'],
+                [100000, '#E6B71E'],
+                [150000, '#DA9C20'],
+                [200000, '#CA8323'],
+                [250000, '#B86B25'],
+                [300000, '#A25626'],
+                [500000, '#8B4225'],
+                [750000, '#723122']
         ]
       },
-      'fill-opacity': 0.75 }
+      'fill-opacity':  1}
   });
+  map.setPaintProperty('County_MHV_WGS84', 'fill-color', colorMap(60000,colorArray));
 });
