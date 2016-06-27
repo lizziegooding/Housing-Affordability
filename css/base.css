@@ -51,3 +51,9 @@ iframe {
   margin: auto;
   margin-top: 325px;
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
