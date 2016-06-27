@@ -24,6 +24,9 @@
   <link rel="stylesheet" href="vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css.map">
   <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
+
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -73,16 +76,47 @@
 
 <!-- Primary Page Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <header>
-  </header>
+<div class="container">
+  <div class="row">
 
-  <div id="map">
+    <div class="col-xs-8">
+
+    </div>
+
+    <div class="col-xs-12">
+
+    </div>
+
+  </div>
+
+
+
+
+<div id="map">
+</div>
+
+    <div class="col-xs-3" id="arguments">
+      <button class="btn btn-default" href="#instrModal" data-toggle="modal" id="assButton">Assumptions</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- ORIGINAL CODE -->
+  <!-- <div id="map">
     <img src="http://www.vectortemplates.com/raster/maps-us-states-03.png">
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-3 pull-right" id="arguments">
+      <div class="col-xs-9"></div>
+      <div class="col-xs-3" id="arguments">
         <button class="btn btn-default" href="#instrModal" data-toggle="modal" id="assButton">Assumptions</button>
       </div>
     </div>
@@ -92,12 +126,23 @@
     <div class="container">
       &copy; 2016 Team Atlas
     </div>
+  </footer> -->
+
+
+  <footer class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      &copy; 2016 Team Atlas
+    </div>
   </footer>
+
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+  <script type="text/javascript" src="js/initialize-map.js"></script>
+
 
   </body>
 </html>
