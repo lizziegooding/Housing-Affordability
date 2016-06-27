@@ -1,4 +1,6 @@
 //Calculate annual and montly housing costs based on 20% down (no PMI)
+var testGeojson = JSON.parse( 'County_MHV.geojson');
+console.log(testGeojson.type);
 var interestRate = 0.045;
 var salePrice = 300000;
 var mMortgage = ((interestRate / 12) * (salePrice * 0.8)) / (1 - ((1 + ( interestRate / 12)) ^ (-30 * 12)));
