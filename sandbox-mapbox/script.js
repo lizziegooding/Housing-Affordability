@@ -26,22 +26,23 @@ map.on('load', function () {
     'source-layer': 'County_MHV_WGS84',
     'layout': { visibility: 'visible'},
     'paint': {
-      'fill-outline-color': '#484896',
-      'fill-color': '#6e599f',
-      // 'fill-color': {
-      //   property: 'Median_Hom',
-      //   stops: [
-      //           [0, '#F2F12D'],
-      //           [50000, '#EED322'],
-      //           [100000, '#E6B71E'],
-      //           [150000, '#DA9C20'],
-      //           [200000, '#CA8323'],
-      //           [250000, '#B86B25'],
-      //           [300000, '#A25626'],
-      //           [500000, '#8B4225'],
-      //           [750000, '#723122']
-      //   ]
-      // },
+      'fill-outline-color': '#FFF',
+      // 'fill-color': '#6e599f',
+      'fill-color': {
+        property: 'Median_Hom',
+        stops: [
+                [0, '#F2F12D'],
+                [50000, '#EED322'],
+                [100000, '#E6B71E'],
+                [150000, '#DA9C20'],
+                [200000, '#CA8323'],
+                [250000, '#B86B25'],
+                [300000, '#A25626'],
+                [500000, '#8B4225'],
+                [750000, '#723122']
+        ]
+      },
       'fill-opacity':  1}
   });
+  map.setPaintProperty('County_MHV_WGS84', 'fill-color', colorMap(60000,colorArray));
 });
