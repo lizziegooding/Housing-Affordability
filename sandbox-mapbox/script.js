@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsd
 //Initialize a new map object inside of the #map div
 var map = new mapboxgl.Map({
   container: 'map', //HTML element to initialize the map in (or element id as string)
-  zoom: 9,
+  zoom: 3,
   // minZoom: 1, //Default of 0 (world)
   // maxZoom: 12, //Default of 20 (local)
   center: [-95.7129, 37.0902], //LatLng array in decimal degrees
@@ -27,7 +27,6 @@ map.on('load', function () {
     'layout': { visibility: 'visible'},
     'paint': {
       'fill-outline-color': '#FFF',
-      // 'fill-color': '#6e599f',
       'fill-color': {
         property: 'Median_Hom',
         stops: [
