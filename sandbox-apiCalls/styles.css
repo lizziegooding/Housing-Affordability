@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-canvas {
+  width: 75%;
+  height: 75%;
+
+}
+
+img {
+  height: 40px;
+  width: 40px;
+  background-color: gray;
+}
