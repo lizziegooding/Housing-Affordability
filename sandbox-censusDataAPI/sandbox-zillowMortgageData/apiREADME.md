@@ -1,0 +1,16 @@
+zillow api network branding and display requirements
+
+http://www.zillow.com/howto/api/BrandingRequirements.htm
+
+Mortgage Calculators
+
+If you are using any of the following calculator APIs, you must:
+
+Include the phrase "See affordability calculator options on Zillow" on any web page or screen that displays the CalculateAffordability API. The "affordability calculator" portion of this phrase must be a link to http://www.zillow.com/mortgage-calculator/house-affordability/.
+Include the phrase "See mortgage calculator options on Zillow" on any web page or screen that displays Zillow Data from any Calculator API. The "mortgage calculator" portion of this phrase must be a link to http://www.zillow.com/mortgage-calculator/.
+
+------
+
+the data is different for every state, this widget gives the mortgage rate for the united states
+
+<div style="width:178px;height:149px;overflow:hidden;text-align:center;font-family:verdana,arial,sans-serif;margin:0 auto;font-size:8pt;line-height:13x;background-color:#cccccc;letter-spacing:0;text-transform:none;line-height:normal;"><div style="margin:6px 0;"><span style="font-weight:bold;font-size:8pt;color:#ffffff;">Current <br/>Mortgage Rates</span></div><div style="box-sizing: content-box;width:176px;height:90px;margin:0;background-color:#fff;border:1px solid #cccccc;border-width:0 1px;text-align:left; font-size:8pt;"><div style="box-sizing: content-box;width:114px;float:left;"><div style="height:30px;border-bottom:1px solid #ccc;"><div style="box-sizing: content-box;padding:9px 0 0 8px;"><span id="widgetFooterLink"><a href="http://www.zillow.com/30_Year_Fixed_Mortgage_Rates/" target="_blank" rel="nofollow" style="color:#555555;text-decoration:none;">30 Year Fixed</a></span></div></div><div style="box-sizing: content-box;height:29px;border-bottom:1px solid #ccc;"><div style="box-sizing: content-box;padding:9px 0 0 8px;"><span id="widgetFooterLink"><a href="http://www.zillow.com/15_Year_Fixed_Mortgage_Rates/" target="_blank" rel="nofollow" style="color:#555555;text-decoration:none;">15 Year Fixed</a></span></div></div><div style="box-sizing: content-box;height:30px;"><div style="box-sizing: content-box;padding:9px 0 0 8px;"><span id="widgetFooterLink"><a href="http://www.zillow.com/5-1_ARM_Mortgage_Rates/" target="_blank" rel="nofollow" style="color:#555555;text-decoration:none;">5/1 Adjustable</a></span></div></div></div><iframe scrolling="no" src="http://www.zillow.com/mortgage/MortgageRateTable.htm?textcolor=555555&scrnname=zuser20160115143005456&region=102001&cobrand=zuser20160115143005456" width="62" frameborder="0" style="float:left;" title="Current Mortgage Rates" height="90"> Your browser doesn't support frames. Visit <a href="http://www.zillow.com/mortgage-rates/#{scrnnm=zuser20160115143005456}" target="_blank" rel="nofollow" style="text-decoration:none; font-size:9pt; font-weight:bold;">Zillow Mortgages</a> to see this content. </iframe><div style="clear:both;"></div></div><div style="width:178px;margin:2px auto 0;font-size:7pt;color:#ffffff;"><span id="widgetFooterLink"><a href="http://www.zillow.com/mortgage-rates/" target="_blank" rel="nofollow" style="font-size:7pt;text-decoration:none;color:#ffffff;" title="Zillow Mortgages">Zillow Mortgage</a></span></div></div>
