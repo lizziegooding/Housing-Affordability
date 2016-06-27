@@ -1,7 +1,6 @@
 /* Fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 /* Color Palette
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*https://color.adobe.com/Aspirin-C-color-theme-251864/
@@ -14,4 +13,48 @@ Orange: #EB7F00*/
 
 /* Nav Bar
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.
+
+/* Base Image
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#map {
+  position: fixed;
+  width: 72.9%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+#map > img {
+  width: 100%;
+  height: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container, .row, #arguments {
+  height: 100%;
+}
+
+#arguments {
+  position: relative;
+  background-color: pink;
+  border-radius: 10px;
+  opacity: 0.5;
+  margin: 0;
+  text-align: center;
+}
+
+#assButton {
+  position: absolute;
+  bottom: 0;
+  /*margin: auto;*/
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
