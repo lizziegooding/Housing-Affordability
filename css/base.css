@@ -11,32 +11,38 @@ Cream: #F3FFE2
 Orange: #EB7F00*/
 
 
-/* Nav Bar
+/* Nav Bars
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.navbar-inverse {
+  background-color: #225378;
+}
+
+
+
 
 /* Base Image
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 #map {
-  position: fixed;
-  width: 72.9%;
+  /*position: fixed;*/
+  width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: -99;
 }
 
-#map > img {
-  width: 100%;
+/*#map > img {
+  width: 75%;
   height: 100%;
-}
+}*/
 
-html, body {
+/*html, body {
   height: 100%;
 }
 
 .container, .row, #arguments {
   height: 100%;
-}
+}*/
 
 #arguments {
   position: relative;
@@ -51,10 +57,4 @@ html, body {
   position: absolute;
   bottom: 0;
   /*margin: auto;*/
-}
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
 }
