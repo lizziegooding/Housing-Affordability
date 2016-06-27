@@ -1,8 +1,8 @@
 function setRouteMappings() {
   page.base('/');
 
-  page('home', homeController.index);
-  page('compare', compareController.index);
+  // page('home', homeController.index);
+  // page('compare', compareController.index);
   page('afford', affordController.index);
 
   page();
