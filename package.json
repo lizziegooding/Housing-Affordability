@@ -1,5 +1,5 @@
 {
-  "name": "atlas-housing-affordability",
+  "name": "atlas-housing",
   "version": "1.0.0",
   "description": "calculate home prices / affordability",
   "main": "server.js",
