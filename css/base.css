@@ -28,32 +28,23 @@ iframe {
 
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.contentContainer {
+  position: relative;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 30%;
+  height: 100%;
+  z-index: 10;
+}
+
 #info {
   background-color: #1695A3;
   height: 100%;
   opacity: 0.75;
   z-index: 99;
   position: relative;
-}
-
-
-
-/*
-.container, .row, #arguments {
-  height: 100%;
-}*/
-
-/*#arguments {
-  position: relative;
-  background-color: pink;
-  border-radius: 10px;
-  opacity: 0.5;
-  margin: 0;
-  text-align: center;
-}
-
-#assButton {
-  position: absolute;
-  bottom: 0;
-  /*margin: auto;*/
 }
