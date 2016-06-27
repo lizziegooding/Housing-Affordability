@@ -13,40 +13,32 @@ Orange: #EB7F00*/
 
 /* Nav Bars
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.navbar-inverse {
-  background-color: #225378;
+
+/* Base Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+body, html {
+  height: 100%;
 }
 
-
-
-
-/* Base Image
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*#map {
+iframe {
   height: 100%;
   width: 100%;
-}*/
-
-
-
-#map {
-  position: fixed;
-  width: 50%;
-  height: 50%;
-  top: 0;
-  left: 0;
   z-index: -99;
 }
 
-/*#map > img {
-  width: 75%;
+/* Content Display
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#info {
+  background-color: #1695A3;
   height: 100%;
-}*/
-
-/*html, body {
-  height: 100%;
+  opacity: 0.75;
+  z-index: 99;
+  position: relative;
 }
 
+
+
+/*
 .container, .row, #arguments {
   height: 100%;
 }*/
