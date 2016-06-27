@@ -28,9 +28,6 @@ iframe {
 
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.contentContainer {
-  position: relative;
-}
 
 #overlay {
   position: absolute;
@@ -44,7 +41,13 @@ iframe {
 #info {
   background-color: #1695A3;
   height: 100%;
-  opacity: 0.75;
+  opacity: 0.85;
   z-index: 99;
-  position: relative;
+  padding-top: 80px;
+}
+
+#assumpButton {
+  display: block;
+  margin: auto;
+  margin-top: 325px;
 }
