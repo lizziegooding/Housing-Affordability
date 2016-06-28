@@ -2,7 +2,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
 
 //Color array for map display
-var colorArray = ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626'];
+var colorArray = ['#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026'];
+
+// ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626']
 
 //Initialize a new map object inside of the #map div
 function initMap(){
@@ -54,12 +56,8 @@ function initMap(){
 
 }
 
-function setPaint(){
-  // map.on('load', function () {
-  // console.log('call setPaint', map);
-  console.log(document.getElementById('mapHTML').contentWindow.map);
-  document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(1000000000, colorArray));
-  // });
+function setPaint(userSalary){
+  document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
 }
 
 //Change map based on user input

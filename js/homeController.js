@@ -8,8 +8,9 @@
     $('#homeContent').show();
   };
 
-  $('#salaryBtn').on('click', function() {
-    setPaint();
+  $('#salarySubmit').on('click', function(e) {
+    e.preventDefault();
+    setPaint($('#testDol').val());
   });
 
   module.homeController = homeController;
