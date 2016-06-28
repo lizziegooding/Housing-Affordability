@@ -3,6 +3,8 @@
 
   homeController.index = function() {
     $('.tab-content').hide();
+    $('iframe').show();
+    $('#overlay').show();
     $('#homeContent').show();
 
     console.log('calling homeController');
