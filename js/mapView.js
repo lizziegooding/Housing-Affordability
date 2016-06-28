@@ -29,15 +29,15 @@ function initMap(){
       'paint': {
         'fill-outline-color': '#FFF',
         'fill-color': {
-          property: 'Median_Hom',
+          property: 'aPayment',
           stops: [
-                  [0, '#ffffb2'],
-                  [50000, '#fed976'],
-                  [100000, '#feb24c'],
-                  [150000, '#fd8d3c'],
-                  [200000, '#fc4e2a'],
-                  [250000, '#e31a1c'],
-                  [300000, '#b10026'],
+                  [8100, '#ffffb2'],
+                  [10800, '#fed976'],
+                  [13500, '#feb24c'],
+                  [16200, '#fd8d3c'],
+                  [18900, '#fc4e2a'],
+                  [21600, '#e31a1c'],
+                  [24300, '#b10026'],
           ]
         },
         'fill-opacity':  1}
