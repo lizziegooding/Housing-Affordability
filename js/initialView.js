@@ -3,7 +3,8 @@
 
   initialView.index = function() {
     homeController.index();
+    modalControl();
   };
-  console.log('called initial view');
+
   module.initialView = initialView;
 })(window);
