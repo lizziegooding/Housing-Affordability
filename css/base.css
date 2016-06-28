@@ -29,6 +29,20 @@ iframe {
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+.hide-initial {
+  display: none;
+}
+
+.about-div {
+  margin: 2%;
+  margin-top: 100px;
+  margin-bottom: 1%;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: #00cccc;
+}
+
 #overlay {
   position: absolute;
   top: 0;

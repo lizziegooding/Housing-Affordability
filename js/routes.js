@@ -5,6 +5,7 @@ function setRouteMappings() {
   page('home', homeController.index);
   page('compare', compareController.index);
   page('afford', affordController.index);
+  page('about', aboutController.index);
 
   page('index.html', '/');
 
