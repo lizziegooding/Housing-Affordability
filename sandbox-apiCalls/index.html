@@ -7,8 +7,19 @@
     <link href="styles.css" rel="stylesheet">
     <!-- <link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet'/> -->
     <body>
-      <button>button</button>
-      <div id='map-canvas'></div>
+      <!-- <div id='map-canvas'></div> -->
+      <label for='income'>Enter Monthly Income Here</label>
+      <input id='income' type='text'><br>
+      <label for='downP'>Enter Amount You're Willing to Put Down</label>
+      <input id='downP' type='text'><br>
+      <label for='incomeParent'>Percent of monthly salary you're willing to pay towards home</label>
+      <select id='incomePercent'>
+        <option value='0.3'>30%</option>
+        <option value='0.4'>40%</option>
+        <option value='0.5'>50%</option>
+      </select><br>
+      <button id='button1'>Where can I afford home?</button>
+      <div id='percentHomes'></div>
       <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
       <script src="https://uscensusbureau.github.io/citysdk/static/js/citysdk/citysdk.js"></script>
       <script src="https://uscensusbureau.github.io/citysdk/static/js/citysdk/citysdk.census.js"></script>
@@ -17,11 +28,11 @@
       <script src="http://cdn-geoweb.s3.amazonaws.com/terraformer/1.0.5/terraformer.min.js"></script>
       <script src="http://cdn-geoweb.s3.amazonaws.com/terraformer-arcgis-parser/1.0.4/terraformer-arcgis-parser.min.js"></script>
       <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script> -->
-      <script src='sandbox.js'></script>
+      <!-- <script src='sandbox.js'></script> -->
       <script src='app.js'></script>
       <script src='cityMod.js'></script>
       <!-- <script src='zillow.js'></script>
       <script src='trulia.js'></script> -->
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg-HUqHhznjp_zNNOgERRwm_ONHtJvCD4&callback=initialize" async defer></script>
+      <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg-HUqHhznjp_zNNOgERRwm_ONHtJvCD4&callback=initialize" async defer></script> -->
     </body>
   </html>
