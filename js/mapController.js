@@ -1,6 +1,3 @@
-//Color array for map display
-var colorArray = ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626'];
-
 //create an array of colors to populate map paint object
 function colorMap(userInput, colors){
   var fillColor = {};
@@ -12,3 +9,6 @@ function colorMap(userInput, colors){
   });
   return fillColor;
 }
+
+//Initialize map
+fetchMHV(initMap);

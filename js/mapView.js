@@ -1,6 +1,3 @@
-//Declare access Token
-mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
-
 //Initialize a new map object inside of the #map div
 function initMap(){
   console.log('initMap');
@@ -47,7 +44,8 @@ function initMap(){
         },
         'fill-opacity':  1}
     });
-    //Change map based on user input
-    //map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
   });
 }
+
+//Change map based on user input
+//map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
