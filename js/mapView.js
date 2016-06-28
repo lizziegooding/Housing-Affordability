@@ -1,11 +1,3 @@
-//Declare API access Token
-mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
-
-//Color array for map display
-var colorArray = ['#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026'];
-
-// ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626']
-
 //Initialize a new map object inside of the #map div
 function initMap(){
   console.log('initMap');
@@ -39,21 +31,18 @@ function initMap(){
         'fill-color': {
           property: 'Median_Hom',
           stops: [
-                  [0, '#F2F12D'],
-                  [50000, '#EED322'],
-                  [100000, '#E6B71E'],
-                  [150000, '#DA9C20'],
-                  [200000, '#CA8323'],
-                  [250000, '#B86B25'],
-                  [300000, '#A25626'],
-                  [500000, '#8B4225'],
-                  [750000, '#723122']
+                  [0, '#ffffb2'],
+                  [50000, '#fed976'],
+                  [100000, '#feb24c'],
+                  [150000, '#fd8d3c'],
+                  [200000, '#fc4e2a'],
+                  [250000, '#e31a1c'],
+                  [300000, '#b10026'],
           ]
         },
         'fill-opacity':  1}
     });
   });
-
 }
 
 function setPaint(userSalary){
