@@ -18,7 +18,7 @@ censusModule.enable('34c1995fd27b0768996406c90a11d8ddf0024344');
 //
 // };
 
-var request4 = {
+var request = {
   state: 'AK',
   level: 'level',
   sublevel: true,
@@ -36,11 +36,26 @@ var request4 = {
 //     map.data.addGeoJson(response);
 //   });
 // });
-var requestsArray = Array();
+
 $('button').on('click', function(){
+  var request = {
+    state: 'AK',
+    level: 'level',
+    sublevel: true,
+    variables: [
+      'median_home_value',
+      'income',
+    ],
+    api: 'acs5',
+    year: '2014'
+  };
+  var requestsArray = [];
   stateArray.forEach(function(element){
     request4.state = element;
-    requestsArray.push(censusModule.APIRequest(request4));
+    requestsArray.push(censusModule.APIRequest(request4, function(response){
+      return response;
+    }));
+    return requestsArray;
   });
   var defer = $.when.apply($, requestsArray);
   defer.done(function(){
