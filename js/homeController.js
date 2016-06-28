@@ -6,8 +6,11 @@
     $('iframe').show();
     $('#overlay').show();
     $('#homeContent').show();
-
-    console.log('calling homeController');
   };
+
+  $('#salaryBtn').on('click', function() {
+    setPaint();
+  });
+
   module.homeController = homeController;
 })(window);
