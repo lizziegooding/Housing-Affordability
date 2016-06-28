@@ -5,7 +5,7 @@ function fetchMHV(callback){
     console.log('Success!');
     testGeojson = data;
     myJSON = calcAffordability(testGeojson);
-    console.log('myJSON', myJSON);
+    // console.log('myJSON', myJSON);
     //Init map page
     callback();
   })

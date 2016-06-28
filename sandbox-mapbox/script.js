@@ -25,7 +25,7 @@ function initMap(){
     });
 
     //Add loaded data and style
-    console.log('add layer', myJSON);
+    console.log('add layer');
 
     map.addLayer({
       'id': 'myJSON',
