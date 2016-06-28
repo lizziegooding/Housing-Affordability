@@ -26,6 +26,14 @@ iframe {
   z-index: -99;
 }
 
+/* Modal
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#form {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
