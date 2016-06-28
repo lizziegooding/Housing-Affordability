@@ -1,5 +1,3 @@
-//example calls to some API's
-
 var requestProxy = require('express-request-proxy'),
   request = require('request'),
   Zillow = require('node-zillow'),
@@ -10,10 +8,10 @@ var requestProxy = require('express-request-proxy'),
 
 var proxyZillow = function (request, response) {
   var parameters = {
-    state: 'OR',
+    state: request.params[0],
     childtype: 'county'
   };
-  var zillow = new Zillow(process.env.ZILLOW_TOKEN);
+  var zillow = new Zillow('X1-ZWz1fc2p5p72ff_3fm17'/*process.env.ZILLOW_TOKEN*/);
   console.log('routing zillow request');
   zillow.get('GetRegionChildren', parameters).then(function(result) {
     console.log(result);
@@ -51,7 +49,7 @@ app.get('/trulia', proxyTrulia);
 
 app.get('/github/*', proxyGitHub);
 
-app.get('/zillow', proxyZillow);
+app.get('/zillow/*', proxyZillow);
 
 app.use(express.static('./'));
 

@@ -19,7 +19,7 @@ function calcAffordability(someData){
   // var mPMI = salePrice - (mMortgage * 12) * 0.01;
   testGeojson.features.forEach(function(ele){
     var salePrice = ele.properties.Median_Hom;
-    ele.properties.mMortgage = ((interestRate / 12) * (salePrice * 0.8)) / (1 - ((1 + ( interestRate / 12)) ^ (-30 * 12)));
+    ele.properties.mMortgage = ((interestRate / 12) * homePrice) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)));
     ele.properties.mInsurance = (salePrice / 1000 * 3.5 / 12);
     ele.properties.mUtilities = 250;
     ele.properties.mPropertyTax = salePrice * 0.5983 * 0.02 / 12;
