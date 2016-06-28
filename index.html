@@ -21,8 +21,6 @@
   <link rel="stylesheet" href="vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css.map">
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
-
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -96,7 +94,7 @@
 
 <!-- Primary Page Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<iframe src="map.html" frameborder="0">
+<iframe src="map.html" frameborder="0" id="mapHTML">
 </iframe>
 
 <div class="container">
@@ -106,10 +104,23 @@
       <!-- Home Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="homeContent">
-        <p>this is home dummy data</p>
-        <p>this is home dummy data</p>
-        <p>this is home dummy data</p>
-      </section>
+        <h3>Where Can You Afford to Buy a Home?</h3>
+        <p>blah blah blah more copy</p>
+
+          <button id="salaryBtn" type="submit" name="inputTest">Input Test</button>
+
+      <div>
+        <p></p>
+        <form>
+          <div class="form-group row">
+            <label for="test$" class="col-sm-3 form-control-label">Test$</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="testDol" placeholder="$26,000">
+              <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
 
       <!-- Compare Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -146,10 +157,16 @@
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
   <!-- <script type="text/javascript" src="js/controller.js"></script>
   <script type="text/javascript" src="js/initialize-map.js"></script> -->
+
+  <!-- <script type="text/javascript" src="js/mapModel.js"></script> -->
+  <script type="text/javascript" src="js/mapView.js"></script>
+  <script type="text/javascript" src="js/mapController.js"></script>
+
   <script type="text/javascript" src="vendor/page.js"></script>
   <script type="text/javascript" src="js/localStorage.js"></script>
   <script type="text/javascript" src="js/initialView.js"></script>
@@ -159,6 +176,7 @@
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
+
 
 
   </body>

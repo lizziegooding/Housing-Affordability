@@ -6,8 +6,12 @@
     $('iframe').show();
     $('#overlay').show();
     $('#homeContent').show();
-
-    console.log('calling homeController');
   };
+
+  $('#salarySubmit').on('click', function(e) {
+    e.preventDefault();
+    setPaint($('#testDol').val());
+  });
+
   module.homeController = homeController;
 })(window);

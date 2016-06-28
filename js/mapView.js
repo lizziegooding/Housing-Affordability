@@ -1,7 +1,7 @@
 //Initialize a new map object inside of the #map div
 function initMap(){
   console.log('initMap');
-  var map = new mapboxgl.Map({
+  window.map = new mapboxgl.Map({
     container: 'map', //HTML element to initialize the map in (or element id as string)
     zoom: 3,
     // minZoom: 1, //Default of 0 (world)
@@ -31,20 +31,22 @@ function initMap(){
         'fill-color': {
           property: 'Median_Hom',
           stops: [
-                  [0, '#F2F12D'],
-                  [50000, '#EED322'],
-                  [100000, '#E6B71E'],
-                  [150000, '#DA9C20'],
-                  [200000, '#CA8323'],
-                  [250000, '#B86B25'],
-                  [300000, '#A25626'],
-                  [500000, '#8B4225'],
-                  [750000, '#723122']
+                  [0, '#ffffb2'],
+                  [50000, '#fed976'],
+                  [100000, '#feb24c'],
+                  [150000, '#fd8d3c'],
+                  [200000, '#fc4e2a'],
+                  [250000, '#e31a1c'],
+                  [300000, '#b10026'],
           ]
         },
         'fill-opacity':  1}
     });
   });
+}
+
+function setPaint(userSalary){
+  document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
 }
 
 //Change map based on user input
