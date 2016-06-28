@@ -1,9 +1,7 @@
 //Declare access Token
 mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
-//Initialize a new map object inside of the #map div
 
-// console.log(fetchMHV(calcAffordability));
-// if(!myJSON === undefined){
+//Initialize a new map object inside of the #map div
 function initMap(){
   console.log('initMap');
   var map = new mapboxgl.Map({
@@ -25,8 +23,6 @@ function initMap(){
     });
 
     //Add loaded data and style
-    console.log('add layer');
-
     map.addLayer({
       'id': 'myJSON',
       'type': 'fill',
@@ -51,6 +47,7 @@ function initMap(){
         },
         'fill-opacity':  1}
     });
-    // map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
+    //Change map based on user input
+    //map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
   });
 }

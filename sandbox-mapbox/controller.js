@@ -1,18 +1,14 @@
+//Color array for map display
 var colorArray = ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626'];
 
+//create an array of colors to populate map paint object
 function colorMap(userInput, colors){
-  // var parentArray = [];
   var fillColor = {};
   var percent = 0.10;
   fillColor.property = 'mPayment';
-  var parentArray = colors.map(function(col){
+  fillColor.stops = colors.map(function(col){
     percent += 0.05;
     return [userInput * percent, col];
   });
-  // for (var yy = 0; yy < array.length; yy++) {
-  //   parentArray.push([userInput * percent, colors[yy]]);
-  //   percent += 0.05;
-  // }
-  fillColor.stops = parentArray;
   return fillColor;
 }
