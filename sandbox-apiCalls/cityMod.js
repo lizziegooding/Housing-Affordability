@@ -38,37 +38,32 @@ national.populateCheckbox = function() {
 };
 
 national.populateCheckbox();
-//the below is functional for adding geojson to a google map
 
-// $('button').on('click', function(){
-//   censusModule.GEORequest(request4, function(response) {
-//     console.log('add that data to map');
-//     map.data.addGeoJson(response);
-//   });
-// });
-//
+//the below is functional for the user to request data from the api
+
+$('#callAPI').on('click', function(){
+  national.populateRequestVariables();
+});
 
 var userRequest = {
-  state: 'OR',
+  state: 'CA',
   level: 'state',
   sublevel: true,
-  variables: [
-    'median_home_value',
-    'income',
-    'median_gross_rent',
-    'population',
-    'education_bachelors',
-    'commute_time_public_transport',
-    'commute_time_solo_automobile',
-    'poverty'
-  ],
+  variables: ['income', 'median_home_value'],
   api: 'acs5',
   year: '2014'
 };
 
-censusModule.APIRequest(userRequest, function(response){
-  console.log(response);
-});
+// if we add more check boxes, be careful because the function below will work on those aswell.
+national.populateRequestVariables = function(){
+  // userRequest.state = $('#stateFilter').val();
+  // $('input:checked').each(function () {
+  //   userRequest.variables.push($(this).val());
+  // });
+  censusModule.APIRequest(userRequest, function(response){
+    console.log(response);
+  });
+};
 
 // use our state array. use a foreach loop that populates a select with each of the states.
 // allow the user to select which state they want to get data
