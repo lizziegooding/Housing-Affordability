@@ -1,6 +1,12 @@
+//Declare API access Token
+mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
+
+//Color array for map display
+var colorArray = ['#F2F12D','#EED322','#E6B71E','#DA9C20','#CA8323','#B86B25','#A25626'];
+
 //Fetch locally stored Median Home Value data
 function fetchMHV(callback){
-  $.getJSON('County_MHV_WGS84.geojson')
+  $.getJSON('data/County_MHV_WGS84.geojson')
   .done(function(data){
     console.log('Success!');
     testGeojson = data;
