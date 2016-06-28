@@ -4,7 +4,7 @@ function colorMap(userInput, colors){
   // var parentArray = [];
   var fillColor = {};
   var percent = 0.10;
-  fillColor.property = 'Median_Hom';
+  fillColor.property = 'mPayment';
   var parentArray = colors.map(function(col){
     percent += 0.05;
     return [userInput * percent, col];
