@@ -46,20 +46,20 @@ $('#callAPI').on('click', function(){
 });
 
 var userRequest = {
-  state: 'CA',
+  // state: '',
   level: 'state',
   sublevel: true,
-  variables: ['income', 'median_home_value'],
+  variables: [],
   api: 'acs5',
   year: '2014'
 };
 
 // if we add more check boxes, be careful because the function below will work on those aswell.
 national.populateRequestVariables = function(){
-  // userRequest.state = $('#stateFilter').val();
-  // $('input:checked').each(function () {
-  //   userRequest.variables.push($(this).val());
-  // });
+  userRequest.state = $('#stateFilter').val();
+  $('input:checked').each(function () {
+    userRequest.variables.push($(this).val());
+  });
   censusModule.APIRequest(userRequest, function(response){
     console.log(response);
   });
