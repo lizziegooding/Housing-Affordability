@@ -26,6 +26,11 @@ var modalControl = function() {
   }
 };
 
-var salaryStorage = function() {
-  
-}
+var salaryStorage = function(input, currency) {
+  var $salaryCheckbox = $('#salaryCheckbox');
+
+  if ($salaryCheckbox.prop('checked')) {
+    // console.log('salary checkbox checked!');
+    localStorage.salaryCurrency = JSON.stringify([input, currency]);
+  }
+};
