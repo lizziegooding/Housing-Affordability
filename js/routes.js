@@ -10,7 +10,7 @@ function setRouteMappings() {
     $('body').html('Sorry! The page you requested doesn\'t exist. Hit your browser\'s "back" button to return to the previous page');
   });
 
-  page('index.html', '/');
+  // page('index.html', '/');
 
   page();
 }

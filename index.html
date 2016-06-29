@@ -139,24 +139,26 @@
         <h3>Home Affordability Calculator</h3>
         <div class="">
           <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
-          <input type="range" id="incomeSlide" min="0" value="2000" max="30000" step="100" class='sliders'>
+          <input type="range" id="incomeSlide" min=0 value=2000 max=30000 step=100 class='sliders'>
         </div>
         <div class="">
           <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
-          <input type="range" id="dpSlide" min="10000" value="30000" max="100000" step="500" class='sliders'>
+          <input type="range" id="dpSlide" min=10000 value=30000 max=100000 step=500 class='sliders'>
         </div>
         <div class="">
           <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
-          <input type="range" id="interestSlide" min="0.01" value="0.04" max="0.15" step="0.0025" class='sliders'>
+          <input type="range" id="interestSlide" min=0.01 value=0.04 max=0.15 step=0.0025 class='sliders'>
         </div>
         <div class="">
           <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
-          <input type="range" id="utilitySlide" min="0" value="250" max="750" step="10" class='sliders'>
+          <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
         </div>
         <!-- Tie into map rendering -->
         <button id='button1' class='btn btn-info'>Where can I afford home?</button>
         <div id='percentHomes'></div>
       </section>
+
+      <!-- charts here? -->
 
       <button class="btn btn-default" href="#instrModal" data-toggle="modal" id="assumpButton">Assumptions</button>
     </div>
@@ -179,6 +181,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://uscensusbureau.github.io/citysdk/static/js/citysdk/citysdk.js"></script>
+  <script src="https://uscensusbureau.github.io/citysdk/static/js/citysdk/citysdk.census.js"></script>
+  <script src="http://cdn-geoweb.s3.amazonaws.com/terraformer/1.0.5/terraformer.min.js"></script>
+  <script src="http://cdn-geoweb.s3.amazonaws.com/terraformer-arcgis-parser/1.0.4/terraformer-arcgis-parser.min.js"></script>
   <script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
   <!-- <script type="text/javascript" src="js/controller.js"></script>
   <script type="text/javascript" src="js/initialize-map.js"></script> -->
@@ -188,6 +194,7 @@
   <script type="text/javascript" src="js/mapController.js"></script>
 
   <script type="text/javascript" src="vendor/page.js"></script>
+  <script type="text/javascript" src="js/nationalCalcs.js"></script>
   <script type="text/javascript" src="js/localStorage.js"></script>
   <script type="text/javascript" src="js/initialView.js"></script>
   <script type="text/javascript" src="js/homeController.js"></script>
