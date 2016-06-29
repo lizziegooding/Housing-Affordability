@@ -31,13 +31,16 @@ function initMap(){
         'fill-color': {
           property: 'aPayment',
           stops: [
-                  [8100, '#ffffb2'],
-                  [10800, '#fed976'],
-                  [13500, '#feb24c'],
-                  [16200, '#fd8d3c'],
-                  [18900, '#fc4e2a'],
-                  [21600, '#e31a1c'],
-                  [24300, '#b10026'],
+            // Greens ['#edf8e9','#bae4b3','#74c476','#238b45']
+            // Reds ['#fee5d9','#fcae91','#fb6a4a','#cb181d']
+                  [0, '#238b45'], //0-15% affordable
+                  [8100, '#74c476'], //16-20% affordable
+                  [10800, '#bae4b3'], //21-25% affordable
+                  [13500, '#edf8e9'], //26-30% affordable
+                  [16200, '#fee5d9'], //31-35% unaffordable
+                  [18900, '#fcae91'], //36-40% unaffordable
+                  [21600, '#fb6a4a'], //41-45% unaffordable
+                  [24300, '#cb181d'], //>45% unaffordable
           ]
         },
         'fill-opacity':  1}
