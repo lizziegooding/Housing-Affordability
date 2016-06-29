@@ -20,3 +20,15 @@ input {
   width: 100px;
   height: 50px;
 }
+
+.container {
+  width: 100%;
+}
+
+.sliders {
+  width: 100px;
+}
+
+p {
+  display: inline-block;
+}
