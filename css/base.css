@@ -60,10 +60,10 @@ iframe {
 
 #bootCont {
   height: 100%;
-  width: 25%;
+  width: 22%;
   z-index: 2;
   position: absolute;
-  right: 5%;
+  right: 3%;
   padding-top: 80px;
   padding-bottom: 10px;
   display: flex;
@@ -71,22 +71,36 @@ iframe {
   justify-content: space-between;
   background-color: #fff;
   opacity: 0.5;
+  min-width: 175px;
 }
 
-#one {
-  height: 30%;
+#contentOne {
+  height: 25%;
   background-color: red;
 }
 
-#two {
-  height: 30%;
+#contentTwo {
+  height: 25%;
   background-color: yellow;
 }
 
-#three {
-  height: 30%;
+#contentThree {
+  height: 25%;
   background-color: green;
 }
+
+#aButton {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#assumpButton:focus {
+  outline: 0;
+}
+
+
 
 /*#overlay {
   position: absolute;
