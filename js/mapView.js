@@ -13,6 +13,7 @@ function initMap(){
     style: 'mapbox://styles/lizziegooding/ciq1cofi8003ybknqhk5pfruz'
     //Basemap style; can be a preset from mapbox or a user defined style
   });
+  map.addControl(new mapboxgl.Navigation());
 
   //Once the map has loaded
   map.on('load', function () {
@@ -49,6 +50,7 @@ function initMap(){
         },
         'fill-opacity':  1}
     },'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
+    // Create a popup, but don't add it to the map yet.
     // map.addSource('basemap', {
     //   'type': 'vector',
     //   'url': 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
@@ -62,7 +64,53 @@ function initMap(){
     //   'source-layer': 'basemap',
     // });
   });
+  //Create a new popup
+  var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  });
+
+  map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+    // });
+
+    if (!features.length) {
+      popup.remove();
+      return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(map.unproject(e.point))
+        .setHTML(feature.properties.Geography)
+        .addTo(map);
+  });
 }
+// When a click event occurs near a marker icon, open a popup at the location of
+// the feature, with description HTML from its properties.
+// map.on('click', function (e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: ['states-layer'] });
+//     if (!features.length) {
+//         return;
+//     }
+//
+//     var feature = features[0];
+//
+//     var popup = new mapboxgl.Popup()
+//         .setLngLat(map.unproject(e.point))
+//         .setHTML(feature.properties.name)
+//         .addTo(map);
+// });
+//
+// // Use the same approach as above to indicate that the symbols are clickable
+// // by changing the cursor style to 'pointer'.
+// map.on('mousemove', function (e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: ['states-layer'] });
+//     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+// });
 
 function setPaint(userSalary){
   document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
