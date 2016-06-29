@@ -10,7 +10,12 @@
 
   $('#salarySubmit').on('click', function(e) {
     e.preventDefault();
-    setPaint($('#testDol').val());
+    var $salaryInput = $('#salaryInput').val();
+    if (isNaN(parseFloat($salaryInput))) {
+      console.log('will change class to show user invalid input');
+    } else {
+      setPaint($salaryInput);
+    }
   });
 
   module.homeController = homeController;
