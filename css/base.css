@@ -23,7 +23,8 @@ body, html {
 iframe {
   height: 100%;
   width: 100%;
-  z-index: -99;
+  z-index: 1;
+  position: absolute;
 }
 
 /* Modal
@@ -51,7 +52,43 @@ iframe {
   background-color: #00cccc;
 }
 
-#overlay {
+#mainDiv {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#bootCont {
+  height: 100%;
+  width: 25%;
+  z-index: 2;
+  position: absolute;
+  right: 5%;
+  padding-top: 80px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+#one {
+  height: 30%;
+  background-color: red;
+}
+
+#two {
+  height: 30%;
+  background-color: yellow;
+}
+
+#three {
+  height: 30%;
+  background-color: green;
+}
+
+/*#overlay {
   position: absolute;
   top: 0;
   right: 5%;
@@ -66,12 +103,22 @@ iframe {
   opacity: 0.85;
   z-index: 99;
   padding-top: 80px;
-}
+  position: relative;
+}*/
+
+/*#aButton {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}*/
 
 #assumpButton {
-  display: block;
+  /*display: block;
   margin: auto;
-  margin-top: 325px;
+  margin-top: 325px;*/
 }
 
 footer {
