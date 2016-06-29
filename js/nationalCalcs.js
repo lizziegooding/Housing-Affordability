@@ -58,14 +58,68 @@
     });
   };
 
+  $('#salarySubmit').on('click', function(e) {
+    e.preventDefault();
+    var $salaryInput = $('#salaryInput').val();
+    if (isNaN(parseFloat($salaryInput))) {
+      console.log('will change class to show user invalid input');
+    } else {
+      setPaint($salaryInput);
+    }
+  });
+
+  //fetchMHV(initMap);
+  //runs
+  //Fetch locally stored Median Home Value data
+  function fetchMHV(callback){
+    $.getJSON('data/County_MHV_WGS84.geojson')
+    .done(function(data){
+      console.log('Success!');
+      testGeojson = data;
+      myJSON = calcAffordability(testGeojson);
+      //Init map page
+      callback();
+    })
+    .fail(function() { console.log('Problem with data!'); })
+    .always(function() { console.log('Try to get JSON data from server.');
+    });
+  }
+
+  //Calculate annual and montly housing costs based on 20% down (no PMI)
+  function calcAffordability(someData){
+    var interestRate = 0.045;
+    // var mPMI = salePrice - (mMortgage * 12) * 0.01;
+    testGeojson.features.forEach(function(ele){
+      var e = ele.properties;
+      var salePrice = e.Median_Hom;
+      e.mMortgage = ((interestRate / 12) * salePrice) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)));
+      e.mInsurance = (salePrice / 1000 * 3.5 / 12);
+      e.mUtilities = 250;
+      e.mPropertyTax = salePrice * 0.5983 * 0.02 / 12;
+      e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
+      e.aPayment = e.mPayment * 12;
+    });
+    return someData;
+  }
+
+
   $(function(){
+    if ($('#salaryInput').val() > 0) {
+      $('#incomeSlide').val($('#salaryInput').val());
+    }
+
     $('#incSlideVal').text($('#incomeSlide').val());
+    $('#percentSlideVal').text(Math.round($('#percentSlide').val())*100 + '%');
     $('#dpSlideVal').text($('#dpSlide').val());
     $('#interestSlideVal').text(Math.round($('#interestSlide').val())*100 + '%');
     $('#utilitySlideVal').text($('#utilitySlide').val());
 
     $('#incomeSlide').on('input', function() {
       $('#incSlideVal').text($(this).val());
+    });
+
+    $('#percentSlide').on('input', function() {
+      $('#percentSlideVal').text(Math.round(($(this).val()*100)*100) / 100 + '%');
     });
 
     $('#dpSlide').on('input', function() {
@@ -109,8 +163,6 @@
     console.log($('#incomeSlide').val());
     $('#percentHomes').append(national.whereCanIBuy(national.countyHomes, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val()));
   });
-
-  // parseInt($('#incomeSlide').val(),10)
 
   $(function(){
     national.nationalMedian(national.buildCountyHomes);
