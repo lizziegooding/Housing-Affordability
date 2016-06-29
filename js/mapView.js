@@ -10,7 +10,7 @@ function initMap(){
     // minZoom: 1, //Default of 0 (world)
     // maxZoom: 12, //Default of 20 (local)
     center: [-80.7129,40.0902], //LatLng array in decimal degrees
-    style: 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
+    style: 'mapbox://styles/lizziegooding/ciq1cofi8003ybknqhk5pfruz'
     //Basemap style; can be a preset from mapbox or a user defined style
   });
 
@@ -31,7 +31,7 @@ function initMap(){
       'source-layer': 'myJSON',
       'layout': { visibility: 'visible'},
       'paint': {
-        'fill-outline-color': '#FF0000',
+        'fill-outline-color': '#DEDEDE',
         'fill-color': {
           property: 'aPayment',
           stops: [
@@ -48,7 +48,7 @@ function initMap(){
           ]
         },
         'fill-opacity':  1}
-    });
+    },'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
     // map.addSource('basemap', {
     //   'type': 'vector',
     //   'url': 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
