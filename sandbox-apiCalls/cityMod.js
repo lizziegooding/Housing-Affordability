@@ -36,7 +36,7 @@ $('#callAPI').on('click', function(){
 });
 
 var userRequest = {
-  // state: 'CA',
+  // state: '',
   level: 'state',
   sublevel: true,
   variables: [],
