@@ -61,7 +61,7 @@ iframe {
 }
 
 #info {
-  background-color: #1695A3;
+  background-color: #ffffff;
   height: 100%;
   opacity: 0.85;
   z-index: 99;
@@ -71,7 +71,7 @@ iframe {
 #assumpButton {
   display: block;
   margin: auto;
-  margin-top: 325px;
+  margin-top: 225px;
 }
 
 footer {
