@@ -24,6 +24,11 @@ function initMap(){
       'data': myJSON
     });
 
+    map.addSource('states', {
+      'type': 'geojson',
+      'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_1_states_provinces.geojson'
+    });
+
     //Add loaded data and style
     map.addLayer({
       'id': 'myJSON',
@@ -32,7 +37,7 @@ function initMap(){
       'source-layer': 'myJSON',
       'layout': { visibility: 'visible'},
       'paint': {
-        'fill-outline-color': '#DEDEDE',
+        // 'fill-outline-color': '#DEDEDE',
         'fill-color': {
           property: 'aPayment',
           stops: [
@@ -50,67 +55,74 @@ function initMap(){
         },
         'fill-opacity':  1}
     },'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
-    // Create a popup, but don't add it to the map yet.
-    // map.addSource('basemap', {
-    //   'type': 'vector',
-    //   'url': 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
-    // });
-    //
-    // //Add loaded data and style
-    // map.addLayer({
-    //   'id': 'basemap',
-    //   'type': 'fill',
-    //   'source': 'basemap',
-    //   'source-layer': 'basemap',
-    // });
-  });
+
+    map.addLayer({
+      'id': 'state-fills',
+      'type': 'fill',
+      'source': 'states',
+      'layout': {},
+      'paint': {
+        'fill-color': '#627BC1',
+        'fill-opacity': 0
+      }
+    });
+    map.addLayer({
+      'id': 'state-borders',
+      'type': 'line',
+      'source': 'states',
+      'layout': {},
+      'paint': {
+        'line-color': '#DEDEDE',
+        'line-width': 0.5
+      }
+    });
+    map.addLayer({
+      'id': 'route-hover',
+      'type': 'fill',
+      'source': 'states',
+      'layout': {},
+      'paint': {
+        'fill-color': '#FFF',
+        'fill-opacity': 0.7
+      },
+      'filter': ['==', 'name', '']
+    });
+
+    map.on('mousemove', function(e) {
+      var features = map.queryRenderedFeatures(e.point, { layers: ['state-fills'] });
+      if (features.length) {
+        map.setFilter('route-hover', ['==', 'name', features[0].properties.name]);
+      } else {
+        map.setFilter('route-hover', ['==', 'name', '']);
+      }
+    });
+
+  });//END onLoad
+
   //Create a new popup
-  var popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false
-  });
-
-  map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
-    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-    // });
-
-    if (!features.length) {
-      popup.remove();
-      return;
-    }
-
-    var feature = features[0];
-
-    // Populate the popup and set its coordinates
-    // based on the feature found.
-    popup.setLngLat(map.unproject(e.point))
-        .setHTML(feature.properties.Geography)
-        .addTo(map);
-  });
+  // var popup = new mapboxgl.Popup({
+  //   closeButton: false,
+  //   closeOnClick: false
+  // });
+  //
+  // map.on('mousemove', function(e) {
+  //   var features = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
+  //   map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+  //
+  //   if (!features.length) {
+  //     popup.remove();
+  //     return;
+  //   }
+  //
+  //   var feature = features[0];
+  //
+  //   // Populate the popup and set its coordinates
+  //   // based on the feature found.
+  //   popup.setLngLat(map.unproject(e.point))
+  //       .setHTML(feature.properties.Geography)
+  //       .addTo(map);
+  // });
 }
-// When a click event occurs near a marker icon, open a popup at the location of
-// the feature, with description HTML from its properties.
-// map.on('click', function (e) {
-//     var features = map.queryRenderedFeatures(e.point, { layers: ['states-layer'] });
-//     if (!features.length) {
-//         return;
-//     }
-//
-//     var feature = features[0];
-//
-//     var popup = new mapboxgl.Popup()
-//         .setLngLat(map.unproject(e.point))
-//         .setHTML(feature.properties.name)
-//         .addTo(map);
-// });
-//
-// // Use the same approach as above to indicate that the symbols are clickable
-// // by changing the cursor style to 'pointer'.
-// map.on('mousemove', function (e) {
-//     var features = map.queryRenderedFeatures(e.point, { layers: ['states-layer'] });
-//     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-// });
 
 function setPaint(userSalary){
   document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
