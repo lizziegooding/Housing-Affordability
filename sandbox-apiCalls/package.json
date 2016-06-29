@@ -1,0 +1,17 @@
+{
+  "name": "mvc-blog",
+  "version": "1.0.0",
+  "description": "As we now complete our MVC conversation, we can refactor our app to use good MVC separation of concerns.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Code Fellows",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-request-proxy": "^1.2.0",
+    "node-zillow": "1.0.1",
+    "request": "^2.72.0"
+  }
+}
