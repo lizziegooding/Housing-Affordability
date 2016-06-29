@@ -1,3 +1,6 @@
+//Declare API access Token
+mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
+
 //Initialize a new map object inside of the #map div
 function initMap(){
   console.log('initMap');
@@ -7,7 +10,8 @@ function initMap(){
     // minZoom: 1, //Default of 0 (world)
     // maxZoom: 12, //Default of 20 (local)
     center: [-80.7129,40.0902], //LatLng array in decimal degrees
-    style: 'mapbox://styles/mapbox/outdoors-v9' //Basemap style; can be a preset from mapbox or a user defined style
+    style: 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
+    //Basemap style; can be a preset from mapbox or a user defined style
   });
 
   //Once the map has loaded
@@ -24,10 +28,10 @@ function initMap(){
       'id': 'myJSON',
       'type': 'fill',
       'source': 'myJSON',
-      // 'source-layer': 'myJSON',
+      'source-layer': 'myJSON',
       'layout': { visibility: 'visible'},
       'paint': {
-        'fill-outline-color': '#FFF',
+        'fill-outline-color': '#FF0000',
         'fill-color': {
           property: 'aPayment',
           stops: [
@@ -45,6 +49,18 @@ function initMap(){
         },
         'fill-opacity':  1}
     });
+    // map.addSource('basemap', {
+    //   'type': 'vector',
+    //   'url': 'mapbox://styles/lizziegooding/ciq191ykc003ubem5qks9wnek'
+    // });
+    //
+    // //Add loaded data and style
+    // map.addLayer({
+    //   'id': 'basemap',
+    //   'type': 'fill',
+    //   'source': 'basemap',
+    //   'source-layer': 'basemap',
+    // });
   });
 }
 
