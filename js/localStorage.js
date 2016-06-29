@@ -25,3 +25,7 @@ var modalControl = function() {
     });
   }
 };
+
+var salaryStorage = function() {
+  
+}

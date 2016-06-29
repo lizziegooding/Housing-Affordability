@@ -10,12 +10,13 @@
 
   $('#salarySubmit').on('click', function(e) {
     e.preventDefault();
-    var $salaryInput = $('#salaryInput').val();
-    console.log($salaryInput.toLocaleString('en-US'));
-    if (isNaN(parseFloat($salaryInput))) {
+    var salaryInput = $('#salaryInput').val();
+    var salaryInteger = parseInt(salaryInput);
+    var salaryCurrency = salaryInteger.toLocaleString('en-US');
+    if (isNaN(salaryInteger)) {
       console.log('will change class to show user invalid input');
     } else {
-      setPaint($salaryInput);
+      setPaint(salaryInput);
     }
   });
 
