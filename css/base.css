@@ -34,6 +34,19 @@ iframe {
   justify-content: space-between;
 }
 
+/* Slider Bars
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 8px;
+    height: 7px;
+    border: 1px solid #bdc3c7;
+    background-color: #fff;
+}
+
+
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 

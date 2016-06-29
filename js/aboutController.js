@@ -8,7 +8,6 @@
     $('.tab-content').hide();
     $('#aboutContent').empty();
     $('#aboutContent').fadeIn(850);
-    console.log('calling aboutController');
   };
 
   module.aboutController = aboutController;

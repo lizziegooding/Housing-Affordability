@@ -78,6 +78,7 @@ var request = {
   year: '2014'
 };
 
+//pulls all income, median_home_value, and median_gross_rent data from the Census API for every county in the US
 national.nationalMedian = function(viewFunc) {
   var counter = 0;
   national.stateArray.forEach(function(element){
@@ -112,7 +113,7 @@ national.buildCountyHomes = function () {
 $(function(){
   $('#incSlideVal').text($('#incomeSlide').val());
   $('#dpSlideVal').text($('#dpSlide').val());
-  $('#incSlideVal').text($('#incomeSlide').val());
+  $('#interestSlideVal').text(Math.round($('#interestSlideVal').val())*100 + '%');
 
   $('#incomeSlide').on('input', function() {
     $('#incSlideVal').text($(this).val());
@@ -123,7 +124,7 @@ $(function(){
   });
 
   $('#interestSlide').on('input', function() {
-    $('#interestSlideVal').text($(this).val());
+    $('#interestSlideVal').text(Math.round(($(this).val()*100)*100) / 100 + '%');
   });
 });
 
