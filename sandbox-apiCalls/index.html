@@ -12,24 +12,25 @@
   </head>
 
     <body>
-      <div class="container">
-        <div class="row">
-          <!-- these could all be sliders -->
-          <section class="col-sm-4">
-            <p><b>Monthly Income:  </b> $</p><p id='incSlideVal'></p>
+        <section class="tab-content" id="affordContent">
+          <h3>Home Affordability Calculator</h3>
+          <div class="">
+            <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
             <input type="range" id="incomeSlide" min="0" value="2000" max="30000" step="100" class='sliders'>
-            <!-- <label for='income'>Enter Monthly Income Here</label>
-            <input id='income' type='text'> -->
-          </section>
-          <section class="col-sm-4">
+          </div>
+          <div class="">
             <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
             <input type="range" id="dpSlide" min="10000" value="30000" max="100000" step="500" class='sliders'>
-          </section>
-          <section class="col-sm-4">
+          </div>
+          <div class="">
             <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
             <input type="range" id="interestSlide" min="0.01" value="0.04" max="0.15" step="0.0025" class='sliders'>
-          </section>
-          <section class="col-sm-4">
+          </div>
+          <div class="">
+            <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
+            <input type="range" id="utilitySlide" min="0" value="250" max="750" step="10" class='sliders'>
+          </div>
+          <div class="">
             <label for='incomeParent'>Percent of monthly salary you're willing to pay towards home</label>
             <!-- potential slider -->
             <select id='incomePercent'>
@@ -37,10 +38,12 @@
               <option value='0.4'>40%</option>
               <option value='0.5'>50%</option>
             </select>
-          </section>
+          </div>
+          <!-- Tie into map rendering -->
           <button id='button1' class='btn btn-info'>Where can I afford home?</button>
           <div id='percentHomes'></div>
-        </div>
+        </section>
+
         <div class="row">
           <div class="col-sm-3">
             <select id='stateFilter'>
