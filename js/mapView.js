@@ -106,13 +106,21 @@ function initMap(initialSalary){
           '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI.toLocaleString('en-US') )
           .addTo(map);
     });
-    setPaint(initialSalary);
+    setPaint(initialSalary, 'map');
+    // }
 
   });//END onLoad
 }
 
-function setPaint(userSalary){
-  document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
+function setPaint(userSalary, source){
+  if(source == 'map'){
+    map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
+  }
+  else{
+    document.getElementById('mapHTML').contentWindow.map.getPaintProperty('myJSON','fill-color');
+  }
+
+  // document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
 }
 
 //Change map based on user input
