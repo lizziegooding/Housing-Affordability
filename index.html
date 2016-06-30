@@ -16,9 +16,7 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap-theme.min.css.map">
   <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap.min.css.map">
   <link rel="stylesheet" type="text/css" href="css/theme.css">
   <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/NEW-layout.css">
@@ -42,18 +40,6 @@
       <p>{{description}}</p>
     </div>
   </script>
-
-  <script id='git-template' type='text/template'>
-   <li>
-     <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-     <p>Description: {{description}}</p>
-     {{#if stargazers_count}}
-      <p>{{stargazers_count}} people have starred this repo</p>
-     {{#if watchers_count}}
-       <p>{{watchers_count}} watching this repo</p>
-     {{/if}}
-   </li>
- </script>
 
   <script id='funk-template' type='text/template'>
   <p><br><br><br></p>
@@ -124,15 +110,9 @@
        <h1>How you compare chart modal</h1>
      </div>
      <div class="modal-body">
-       <h3>Welcome!</h3>
        <div id="canvasHolder"></div>
-      <!-- <canvas id="chart" width="" height=""></canvas> -->
-       <p>This is where our instructions will go.</p>
        <div id="form">
          <div class="checkbox form-group">
-           <label>
-             <input type="checkbox" id="checkbox">Do not show this message again.
-           </label>
          </div>
          <div class="form-group">
            <button class="btn btn-primary" data-dismiss="modal" value="submit" id="agreeButton">OK</button>
@@ -159,25 +139,6 @@
         <h3>Where Can You Afford to Buy a Home?</h3>
         <p>If you want to buy a house at the median price and earn</p>
         <div class="row">
-          <!-- <form>
-            <label class="sr-only">Salary Input</label>
-            <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
-            <button type="submit" id="salarySubmit">
-              <span class="glyphicon glyphicon-arrow-right"></span>
-            </button>
-          </form>
-        </div> -->
-
-        <form>
-          <label class="sr-only">Salary Input</label>
-          <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
-          <span class="glyphicon glyphicon-arrow-right">
-            <button type="submit" id="salarySubmit">
-            </button>
-          </span>
-        </form>
-      </div>
-
 
 
           <div class="form-group row">
@@ -233,17 +194,17 @@
       <section class="tab-content" id="affordContent">
         <h3>Where Can I Afford To Live?</h3>
 
-          <div class="col-md-11 afford-div">
+          <!-- <div class="col-md-11 afford-div"> -->
             <p id='incSlideVal'></p>
             <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
-          </div>
+          <!-- </div> -->
           <div class="col-md-11 afford-div">
             <p id='percentSlideVal'></p>
             <input type="range" id="percentSlide" min=0.05 value=0.30 max=0.60 step=0.01>
           </div>
           <div class="col-md-11 afford-div">
             <p id='dpSlideVal'></p>
-            <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
+            <input type="range" id="dpSlide" min=10000 value=10000 max=100000 step=2000>
           </div>
           <div class="col-md-11 afford-div">
             <p id='interestSlideVal'>_</p><p > </p>
@@ -261,15 +222,10 @@
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div id="aboutContent" class=" hide-initial tab-content">
-    <a><h3 id="githubProxy" href="/github/">View Stats on our Repo!</h3></a>
-    <div id="thisRepo">
-      <ul>
-      </ul>
-    </div>
-    <div id="aboutTeam"></div>
+<div class="container">
+  <div id="aboutContent" class="row hide-initial tab-content">
   </div>
+</div>
 
 <div id="funkDiv">
   <div id="funkContent"></div>
@@ -315,7 +271,7 @@
 
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
-  <script type="text/javascript" src="js/repo.js"></script>
+
   <script type="text/javascript" src="js/plusFunk.js"></script>
   <script type="text/javascript" src="js/funkController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>

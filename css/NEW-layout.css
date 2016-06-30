@@ -16,7 +16,7 @@ footer {
   position: fixed;
   left: 5;
   bottom: 5;
-  z-index: 20;
+  z-index: 99;
 }
 
 /*---funk page--*/
