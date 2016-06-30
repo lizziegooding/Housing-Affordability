@@ -37,7 +37,6 @@ function initMap(){
       'source-layer': 'myJSON',
       'layout': { visibility: 'visible'},
       'paint': {
-        // 'fill-outline-color': '#DEDEDE',
         'fill-color': {
           property: 'aPayment',
           stops: [
@@ -55,26 +54,13 @@ function initMap(){
         },
         'fill-opacity':  1}
     },'admin-3-4-boundaries-bg');
-    // 'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
 
-    // map.addLayer({
-    //   'id': 'dummy-fill',
-    //   'type': 'fill',
-    //   'source': 'county-hover-census',
-    //   'source-layer': 'county-hover-census',
-    //   'layout': {},
-    //   'paint': {
-    //     'fill-color': '#627BC1',
-    //     'fill-opacity': 0
-    //   }
-    // });
     map.addLayer({
       'id': 'counties',
       'type': 'fill',
       'source': 'counties',
       'source-layer': 'original',
       'paint': {
-        // 'fill-outline-color': 'rgba(0,0,0,0.1)',
         'fill-color': 'rgba(0,0,0,0)'
       }
     });
@@ -84,34 +70,11 @@ function initMap(){
       'source': 'counties',
       'source-layer': 'original',
       'paint': {
-        // 'fill-outline-color': '#484896',
         'fill-color': '#FFF',
         'fill-opacity': 0.7
       },
       'filter': ['in', 'FIPS', '']
     });
-    // map.addLayer({
-    //   'id': 'state-borders',
-    //   'type': 'line',
-    //   'source': 'states',
-    //   'layout': {},
-    //   'paint': {
-    //     'line-color': '#DEDEDE',
-    //     'line-width': 0.5
-    //   }
-    // });
-    // map.addLayer({
-    //   'id': 'county-hover-census',
-    //   'type': 'fill',
-    //   'source': 'county-hover-census',
-    //   'source-layer': 'county-hover-census',
-    //   'layout': {},
-    //   'paint': {
-    //     'fill-color': '#FFF',
-    //     'fill-opacity': 0.7
-    //   },
-    //   'filter': ['==', 'GEOID', '']
-    // });
 
     // Create a new popup
     var popup = new mapboxgl.Popup({
@@ -127,7 +90,6 @@ function initMap(){
         map.setFilter('counties-highlighted', ['==', 'FIPS', '']);
       }
       var myJSONfeatures = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
-      // map.getCanvas().style.cursor = (myJSON.length) ? 'pointer' : '';
 
       if (!myJSONfeatures.length) {
         popup.remove();
@@ -144,36 +106,8 @@ function initMap(){
           '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI.toLocaleString('en-US') )
           .addTo(map);
     });
-
-    // });
-
   });//END onLoad
-
-  //Create a new popup
-  // var popup = new mapboxgl.Popup({
-  //   closeButton: false,
-  //   closeOnClick: false
-  // });
-  //
-  // map.on('mousemove', function(e) {
-  //   var features = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
-  //   map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-  //
-  //   if (!features.length) {
-  //     popup.remove();
-  //     return;
-  //   }
-  //
-  //   var feature = features[0];
-  //
-  //   // Populate the popup and set its coordinates
-  //   // based on the feature found.
-  //   popup.setLngLat(map.unproject(e.point))
-  //       .setHTML(feature.properties.Geography)
-  //       .addTo(map);
-  // });
 }
-
 function setPaint(userSalary){
   document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
 }
