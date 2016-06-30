@@ -11,3 +11,18 @@ function colorMap(userInput, colors){
   });
   return fillColor;
 }
+
+function setPaint(userSalary, source){
+  if(source === 'map'){
+    map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
+  }
+  else {
+    console.log('not first time calling set Paint');
+    document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
+  }
+
+  // document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
+}
+
+//Change map based on user input
+//map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
