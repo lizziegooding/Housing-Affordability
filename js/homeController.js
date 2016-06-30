@@ -3,9 +3,9 @@
 
   homeController.index = function() {
     $('.tab-content').hide();
-    $('iframe').fadeIn(700);
-    $('#overlay').fadeIn(700);
-    $('#homeContent').fadeIn(700);
+    $('iframe').show();
+    // $('#overlay').fadeIn(700);
+    $('#homeContent').show();
   };
 
   $('#salarySubmit').on('click', function(e) {

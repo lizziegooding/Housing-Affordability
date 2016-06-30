@@ -3,9 +3,9 @@
 
   compareController.index = function() {
     $('.tab-content').hide();
-    $('iframe').fadeIn(700);
-    $('#overlay').fadeIn(700);
-    $('#compareContent').fadeIn(700);
+    $('iframe').show();
+    // $('#overlay').fadeIn(700);
+    $('#compareContent').show();
 
     console.log('calling compareController');
   };
