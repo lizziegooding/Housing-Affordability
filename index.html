@@ -97,20 +97,87 @@
 <iframe src="map.html" frameborder="0" id="mapHTML">
 </iframe>
 
-<div class="container">
+<div id="mainDiv">
+
+<iframe src="map.html" frameborder="0" id="mapHTML">
+</iframe>
+
+<div class="container tab-content" id="homeContent">
+  <div class="contentOne" id="homeContOne">
+    <h4>Where Can You Afford to Buy a Home?</h4>
+  </div>
+  <div id="homeContTwo">
+    <p>If you want to buy a house at the median price and earn <span><label for="test$" class="form-control-label">Test$</label></span></p>
+  </div>
+  <div class="contentThree" id="homeContThree">
+    <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+    <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
+    <!-- <div class="checkbox-form-group"> -->
+      <label>
+        <input type="checkbox" id="salaryCheckbox"> Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
+      </label>
+    <!-- </div> -->
+  </div>
+  <div id="aButton">
+    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+  </div>
+</div>
+
+<div class="container tab-content" id="compareContent">
+  <div class="contentOne">
+  </div>
+  <div class="contentTwo">
+  </div>
+  <!-- <div id="contentThree"> -->
+    <canvas id="canvas" width="" height=""></canvas>
+  <!-- </div> -->
+  <div id="aButton">
+    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+  </div>
+</div>
+
+<div class="container tab-content" id="affordContent">
+  <div id="affordContOne">
+    <h3>Home Affordability Calculator</h3>
+    <div class="slider">
+      <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
+      <input type="range" id="incomeSlide" min=0 value=2000 max=30000 step=100 class='sliders'>
+    </div>
+    <div class="slider">
+      <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
+      <input type="range" id="dpSlide" min=10000 value=30000 max=100000 step=500 class='sliders'>
+    </div>
+    <div class="slider">
+      <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
+      <input type="range" id="interestSlide" min=0.01 value=0.04 max=0.15 step=0.0025 class='sliders'>
+    </div>
+    <div class="slider">
+      <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
+      <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
+    </div>
+    <!-- Tie into map rendering -->
+    <button id='button1' class='btn btn-info'>Where can I afford home?</button>
+    <div id='percentHomes'></div>
+  </div>
+  <div class="aButton">
+    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+  </div>
+</div>
+
+<!-- <div class="container">
   <div class="row" id="overlay">
-    <div class="col-sm-12 pull-right" id="info">
+    <div class="col-sm-12 pull-right" id="info"> -->
 
       <!-- Home Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-      <section class="tab-content" id="homeContent">
+      <!-- <section class="tab-content" id="homeContent">
         <h3>Where Can You Afford to Buy a Home?</h3>
         <p>If you want to buy a house at the median price and earn</p>
         <form>
-          <div class="form-group row">
+          <div class="form-group row"> -->
             <!-- <label for="test$" class="col-sm-3 form-control-label">Test$</label>
             <div class="col-sm-8"> -->
-              <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+              <!-- <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
               <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
           </div>
           <div class="form-group row">
@@ -118,6 +185,7 @@
               <input type="checkbox" id="salaryCheckbox">Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
             </label>
           </div>
+          <div>
           <div class="form-group row">
             Or try:
             <button id="natAvgBtn" type="submit" name="natAvgBtn">national average</button>
@@ -125,20 +193,20 @@
           </div>
         </form>
       </div>
-    </section>
+    </section> -->
 
       <!-- Compare Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-      <section class="tab-content" id="compareContent">
+      <!-- <section class="tab-content" id="compareContent">
         <h3>Compare yourself to...</h3>
           <p>this is compare dummy data</p>
           <p>this is compare dummy data</p>
           <p>this is compare dummy data</p>
-      </section>
+      </section> -->
 
       <!-- Afford Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-      <section class="tab-content" id="affordContent">
+      <!-- <section class="tab-content" id="affordContent">
         <h3>Home Affordability Calculator</h3>
         <div class="">
           <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
@@ -156,17 +224,17 @@
           <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
           <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
         </div>
-        <!-- Tie into map rendering -->
+        Tie into map rendering
         <button id='button1' class='btn btn-info'>Where can I afford home?</button>
         <div id='percentHomes'></div>
-      </section>
+      </section> -->
 
       <!-- charts here? -->
 
-      <button class="btn btn-default" href="#instrModal" data-toggle="modal" id="assumpButton">Assumptions</button>
+      <!-- <button class="btn btn-default" href="#instrModal" data-toggle="modal" id="assumpButton">Assumptions</button>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -196,13 +264,14 @@
   <script type="text/javascript" src="js/mapView.js"></script>
   <script type="text/javascript" src="js/mapController.js"></script>
   <script type="text/javascript" src="vendor/page.js"></script>
-
+  <script type="text/javascript" src="vendor/Chart.min.js"></script>
   <script type="text/javascript" src="js/nationalCalcs.js"></script>
   <script type="text/javascript" src="js/localStorage.js"></script>
   <script type="text/javascript" src="js/initialView.js"></script>
   <script type="text/javascript" src="js/homeController.js"></script>
   <script type="text/javascript" src="js/compareController.js"></script>
   <script type="text/javascript" src="js/affordController.js"></script>
+  <script type="text/javascript" src="js/charts.js"></script>
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
