@@ -3,9 +3,9 @@
 
   aboutController.index = function() {
     About.fetchAll(About.appendAll);
-    $('#funkDiv').remove();
+    $('#mainDiv').show();
+    $('#funkDiv').hide();
     $('iframe').hide();
-    $('#overlay').hide();
     $('.tab-content').hide();
     $('#aboutContent').empty();
     $('#aboutContent').fadeIn(850);
