@@ -2,7 +2,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibGl6emllZ29vZGluZyIsImEiOiJjaW92cmc1NHYwMWJsdW9tOHowdTA2cnFsIn0.lFq-Wju99kZ_dR_2TMBYCQ';
 
 //Initialize a new map object inside of the #map div
-function initMap(initialSalary){
+function initMap(callback, initialSalary, source){
   console.log('initMap');
   window.map = new mapboxgl.Map({
     container: 'map', //HTML element to initialize the map in (or element id as string)
@@ -106,18 +106,19 @@ function initMap(initialSalary){
           '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI.toLocaleString('en-US') )
           .addTo(map);
     });
-    setPaint(initialSalary, 'map');
+    callback(initialSalary, source);
     // }
 
   });//END onLoad
 }
 
 function setPaint(userSalary, source){
-  if(source == 'map'){
+  if(source === 'map'){
     map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
   }
-  else{
-    document.getElementById('mapHTML').contentWindow.map.getPaintProperty('myJSON','fill-color');
+  else {
+    console.log('not first time calling set Paint');
+    document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
   }
 
   // document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
