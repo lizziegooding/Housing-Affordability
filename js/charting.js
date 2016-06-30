@@ -81,6 +81,9 @@
     chartModal.modal('show');
     var ctx = $('#chart');
     console.log('charting.baseData: ', charting.baseData);
+    var hiddeniFrame = $('.chartjs-hidden-iframe');
+    console.log('hidden iframe = ' , hiddeniFrame);
+    hiddeniFrame.remove();
     var myLineChart = new Chart(ctx, {
       type: 'bar',
       data: charting.baseData,
