@@ -43,6 +43,18 @@
     </div>
   </script>
 
+  <script id='git-template' type='text/template'>
+   <li>
+     <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+     <p>Description: {{description}}</p>
+     {{#if stargazers_count}}
+      <p>{{stargazers_count}} people have starred this repo</p>
+     {{#if watchers_count}}
+       <p>{{watchers_count}} watching this repo</p>
+     {{/if}}
+   </li>
+ </script>
+
   <script id='funk-template' type='text/template'>
   <p><br><br><br></p>
   <h5>Did you know that in...</h5>
@@ -113,7 +125,8 @@
      </div>
      <div class="modal-body">
        <h3>Welcome!</h3>
-      <canvas id="chart" width="" height=""></canvas>
+       <div id="canvasHolder"></div>
+      <!-- <canvas id="chart" width="" height=""></canvas> -->
        <p>This is where our instructions will go.</p>
        <div id="form">
          <div class="checkbox form-group">
@@ -220,17 +233,17 @@
       <section class="tab-content" id="affordContent">
         <h3>Where Can I Afford To Live?</h3>
 
-          <!-- <div class="col-md-11 afford-div"> -->
+          <div class="col-md-11 afford-div">
             <p id='incSlideVal'></p>
             <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
-          <!-- </div> -->
+          </div>
           <div class="col-md-11 afford-div">
             <p id='percentSlideVal'></p>
             <input type="range" id="percentSlide" min=0.05 value=0.30 max=0.60 step=0.01>
           </div>
           <div class="col-md-11 afford-div">
             <p id='dpSlideVal'></p>
-            <input type="range" id="dpSlide" min=10000 value=10000 max=100000 step=2000>
+            <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
           </div>
           <div class="col-md-11 afford-div">
             <p id='interestSlideVal'>_</p><p > </p>
@@ -248,10 +261,15 @@
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container">
-  <div id="aboutContent" class="row hide-initial tab-content">
+
+  <div id="aboutContent" class=" hide-initial tab-content">
+    <a><h3 id="githubProxy" href="/github/">View Stats on our Repo!</h3></a>
+    <div id="thisRepo">
+      <ul>
+      </ul>
+    </div>
+    <div id="aboutTeam"></div>
   </div>
-</div>
 
 <div id="funkDiv">
   <div id="funkContent"></div>
@@ -297,7 +315,7 @@
 
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
-
+  <script type="text/javascript" src="js/repo.js"></script>
   <script type="text/javascript" src="js/plusFunk.js"></script>
   <script type="text/javascript" src="js/funkController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>

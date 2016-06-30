@@ -13,8 +13,8 @@ function initMap(callback, initialSalary, source){
     style: 'mapbox://styles/lizziegooding/ciq1cofi8003ybknqhk5pfruz'
     //Basemap style; can be a preset from mapbox or a user defined style
   });
-  map.addControl(new mapboxgl.Navigation());
-
+  // map.addControl(new mapboxgl.Navigation());
+  map.addControl(new mapboxgl.Navigation({position: 'bottom-left'}));
   //Once the map has loaded
   map.on('load', function () {
     console.log('load data');

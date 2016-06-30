@@ -17,6 +17,7 @@ function fetchMHV(data, callback, secondCallback, source, initialSalary, value1,
   //   console.log(testGeojson);
   //   console.log('3. calling calcAffordability');
   affordCountyMHV = calcAffordability(data, value1, value2, value3);
+  console.log(affordCountyMHV);
   console.log('affordCountyMHV defined');
   //Init map page
   callback(secondCallback, initialSalary, source);
@@ -33,11 +34,18 @@ function calcAffordability(rawData, utilities, downPayment, interestRate){
   // var mPMI = homeValue - (mMortgage * 12) * 0.01;
   rawData.features.forEach(function(ele){
     var e = ele.properties;
-    var homeValue = e.Median_Hom;
-    e.mMortgage = ((interestRate / 12) * (homeValue - (homeValue * downPayment)) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12))));
-    e.mInsurance = (homeValue / 1000 * 3.5 / 12);
-    e.mUtilities = utilities;
-    e.mPropertyTax = homeValue * 0.0129 / 12;
+    var homeValue = parseFloat(e.Median_Hom);
+    // e.mMortgage = ((interestRate / 12) * (homeValue - (homeValue * downPayment)) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12))));
+    // e.mInsurance = (homeValue / 1000 * 3.5 / 12);
+    // e.mUtilities = utilities;
+    // e.mPropertyTax = homeValue * 0.0129 / 12;
+    // e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
+    // e.aPayment = e.mPayment * 12;
+    var mortgateTotal = Math.round((homeValue - (homeValue * downPayment))*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
+    e.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
+    e.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
+    e.mUtilities = Math.round(utilities*100) / 100;
+    e.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12)*100) / 100;
     e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
     e.aPayment = e.mPayment * 12;
   });

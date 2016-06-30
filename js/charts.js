@@ -4,7 +4,7 @@ salaryChart = ['54000','15080'];
 function draw(data) {
 
   canvas.style.display = 'block';
-  var myChart = new Chart(canvas, {
+  myChart = new Chart(canvas, {
     type: 'bar',
     data: {
       labels: ['Median Household Income', 'Yearly Earnings At Minimum Wage', 'Your Income'],

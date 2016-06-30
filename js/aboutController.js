@@ -3,7 +3,6 @@
 
   aboutController.index = function() {
     About.fetchAll(About.appendAll);
-    $('#mainDiv').show();
     $('#funkDiv').hide();
     $('iframe').hide();
     $('.tab-content').hide();
