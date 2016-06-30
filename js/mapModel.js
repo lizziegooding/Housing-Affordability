@@ -8,7 +8,6 @@ var iDownPayment = 0.2;
 var iInterest = 0.045;
 var colorArray = ['#225378', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'];
 //Fetch locally stored Median Home Value data
-// function fetchMHV(callback, callback2, initialSalary, source){
 function fetchMHV(data, callback, secondCallback, source, initialSalary, value1, value2, value3){
   console.log(data);
   // $.getJSON('data/County_MHV_WGS84.geojson')
