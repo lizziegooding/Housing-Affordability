@@ -1,11 +1,35 @@
 body, html {
   height: 100%;
-  /*font-family: 'Raleway', sans-serif;*/
 }
 
 iframe {
   height: 100%;
   width: 100%;
   z-index: -1
+  /*position: absolute;  needs to be deleted*/
+}
+
+/*FROM THE ORIGINAL CODE*/
+
+/* Single Page App Content Display
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.contentContainer {
+  position: relative;
+}
+
+#overlay {
   position: absolute;
+  top: 0;
+  right: 5%;
+  width: 30%;
+  height: 100%;
+  z-index: 10;
+}
+
+#info {
+  background-color: #fff;
+  height: 100%;
+  opacity: 0.90;
+  z-index: 99;
+  position: relative;
 }
