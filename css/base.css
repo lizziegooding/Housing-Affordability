@@ -94,11 +94,26 @@ iframe {
   justify-content: center;
 }
 
-/*#affordContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}*/
+#affordContent {
+  /*width: 100%;*/
+  margin: 2%;
+  top: 0;
+  margin-top: 0;
+  /*position: static;*/
+}
+
+#affordContent h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+#affordContent button {
+  /*margin-top: 5px;*/
+  margin-right: 12.5%;
+  margin-left: 12.5%;
+  width: 75%;
+}
+
 
 #affordContOne {
   height: 85%;
@@ -130,6 +145,39 @@ iframe {
   justify-content: center;
   flex-direction: column;
 }
+
+.afford-div {
+  /*height: 15%;*/
+  background-color: #ff9966;
+  margin: 2%;
+  text-align: center;
+  /*font-size: 0.75em;*/
+  border-radius: 10px;
+}
+
+#percentHomes {
+  text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+  .afford-div {
+    font-size: 0.90em;
+  }
+
+  #percentHomes {
+    font-size: 0.85em;
+  }
+
+  #affordContent button h3{
+    font-size: 0.85em;
+  }
+
+}
+
+#assumpButton {
+  display: block;
+  margin: auto;
+  margin-top: 225px;
 
 #assumpButton:focus {
   outline: 0;
