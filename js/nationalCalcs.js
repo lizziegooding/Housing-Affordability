@@ -65,7 +65,7 @@
       payment.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
       payment.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
       payment.mUtilities = Math.round(utilities*100) / 100;
-      payment.mPropertyTax = Math.round((mortgateTotal * 0.5983 * 0.02 / 12)*100) / 100;
+      payment.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12)*100) / 100;
       payment.mPayment = payment.mMortgage + payment.mInsurance + payment.mUtilities + payment.mPropertyTax;
       payment.aPayment = payment.mPayment * 12;
       return payment;
@@ -90,7 +90,6 @@
 
     $('#incomeSlide').on('input', function() {
       $('#incSlideVal').html('<b>Annual Income:</b> $' + $(this).val());
-      // setPaint($('#incomeSlide').val());
     });
 
     $('#percentSlide').on('input', function() {
@@ -150,7 +149,7 @@
 
 // function addNewMapLayer () {
 //
-//   var map = $('map');
+//   $('#mapHTML).contentWindow.map.setPaintProperty
 //
 //   map.addSource('myJSON', {
 //     'type': 'geojson',
