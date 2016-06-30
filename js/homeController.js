@@ -2,11 +2,10 @@
   var homeController = {};
 
   homeController.index = function() {
+    $('#mainDiv').show();
     $('#funkDiv').hide();
-
     $('.tab-content').hide();
     $('iframe').show();
-    // $('#overlay').fadeIn(700);
     $('#homeContent').show();
   };
 

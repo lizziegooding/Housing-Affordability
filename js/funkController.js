@@ -3,9 +3,9 @@
 
   funkController.index = function() {
     Funk.fetchAll(Funk.appendAll);
-    $('#mainDiv').remove();
+    $('#mainDiv').hide();
     $('iframe').hide();
-    $('.tab-content').remove();
+    $('.tab-content').hide();
     $('#funkContent').empty();
     $('#funkDiv').show();
 
