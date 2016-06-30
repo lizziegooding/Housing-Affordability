@@ -79,11 +79,16 @@
   charting.viewChart = function () {
     var chartModal = $('#chartModal');
     chartModal.modal('show');
-    var ctx = $('#chart');
+
+// remove iframes because a new iframe is appended onto the old one each time you make a call
+// cleared out canvasHolder and then appended a new one so that the chart would only show one at a time
+    var ctx = $('<canvas>');
     console.log('charting.baseData: ', charting.baseData);
     var hiddeniFrame = $('.chartjs-hidden-iframe');
     console.log('hidden iframe = ' , hiddeniFrame);
     hiddeniFrame.remove();
+    $('#canvasHolder').empty();
+    $('#canvasHolder').append(ctx);
     var myLineChart = new Chart(ctx, {
       type: 'bar',
       data: charting.baseData,
