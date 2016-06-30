@@ -40,6 +40,18 @@
     </div>
   </script>
 
+  <script id='git-template' type='text/template'>
+   <li>
+     <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+     <p>Description: {{description}}</p>
+     {{#if stargazers_count}}
+      <p>{{stargazers_count}} people have starred this repo</p>
+     {{#if watchers_count}}
+       <p>{{watchers_count}} watching this repo</p>
+     {{/if}}
+   </li>
+ </script>
+
   <script id='funk-template' type='text/template'>
   <p><br><br><br></p>
   <h5>Did you know that in...</h5>
@@ -265,10 +277,15 @@
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container">
-  <div id="aboutContent" class="row hide-initial tab-content">
+
+  <div id="aboutContent" class=" hide-initial tab-content">
+    <a><h3 id="githubProxy" href="/github/">View Stats on our Repo!</h3></a>
+    <div id="thisRepo">
+      <ul>
+      </ul>
+    </div>
+    <div id="aboutTeam"></div>
   </div>
-</div>
 
 <div id="funkDiv">
   <div id="funkContent"></div>
@@ -312,7 +329,7 @@
   <script type="text/javascript" src="js/charts.js"></script>
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
-
+  <script type="text/javascript" src="js/repo.js"></script>
   <script type="text/javascript" src="js/plusFunk.js"></script>
   <script type="text/javascript" src="js/funkController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
