@@ -49,3 +49,29 @@
 
 /* Affordability Sliders
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.afford-div {
+  /*height: 15%;*/
+  background-color: #ff9966;
+  margin: 2%;
+  text-align: center;
+  /*font-size: 0.75em;*/
+  border-radius: 10px;
+}
+
+
+/* About div - needs revisiting
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.hide-initial {
+  display: none;
+}
+
+.about-div {
+  margin: 2%;
+  margin-top: 100px;
+  margin-bottom: 1%;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: #00cccc;
+}

@@ -2,39 +2,22 @@
 /* Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.hide-initial {
-  display: none;
-}
 
-.about-div {
-  margin: 2%;
-  margin-top: 100px;
-  margin-bottom: 1%;
-  padding: 10px;
-  text-align: left;
-  border-radius: 10px;
-  background-color: #00cccc;
-}
-
-#mainDiv {
+/*#mainDiv {
   height: 100%;
   width: 100%;
   position: relative;
-}
+}*/
 
 .tab-content {
   height: 100%;
-  width: 22%;
   z-index: 2;
-  position: absolute;
-  right: 3%;
+  /*position: absolute;*/
   padding-top: 80px;
-  padding-bottom: 10px;
-  display: flex;
+  /*padding-bottom: 10px;*/
+  /*display: flex;*/
   flex-direction: column;
   justify-content: space-between;
-  background-color: #fff;
-  /*opacity: 0.5;*/
   min-width: 175px;
 }
 
@@ -59,11 +42,11 @@
 }*/
 
 /*#affordContent {
-  /*width: 100%;*/
+  width: 100%;
   margin: 2%;
   top: 0;
   margin-top: 0;
-  /*position: static;*/
+  /*position: static;
 /*}
 
 #affordContent h3 {
@@ -84,11 +67,9 @@
   background-color: #fff;
 }*/
 
-.slider {
-  height: 20%;
-}
 
-.contentOne {
+
+/*.contentOne {
   height: 25%;
   background-color: red;
 }
@@ -101,31 +82,23 @@
 .contentThree {
   height: 25%;
   background-color: white;
-}
+}*/
 
-#aButton {
+/*#aButton {
   height: 15%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
+}*/
 
-.afford-div {
-  /*height: 15%;*/
-  background-color: #ff9966;
-  margin: 2%;
+
+/*#percentHomes {
   text-align: center;
-  /*font-size: 0.75em;*/
-  border-radius: 10px;
-}
-
-#percentHomes {
-  text-align: center;
-}
+}*/
 
 
 
-@media screen and (max-width: 960px) {
+/*@media screen and (max-width: 960px) {
   .afford-div {
     font-size: 0.90em;
   }
@@ -137,23 +110,22 @@
   #affordContent button h3{
     font-size: 0.85em;
   }
+}*/
 
-}
-
-#assumpButton {
+/*#assumpButton {
   display: block;
   margin: auto;
   margin-top: 225px;
 
 #assumpButton:focus {
   outline: 0;
-}
+}*/
 
 footer {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
+  left: 1;
+  bottom: 1;
+  z-index: 1;
 }
 
 /*---funk page--*/
