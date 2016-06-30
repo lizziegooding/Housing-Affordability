@@ -40,7 +40,14 @@
     </div>
   </script>
 
-
+  <script id='funk-template' type='text/template'>
+  <p><br><br><br></p>
+  <h5>Did you know that in...</h5>
+  <h3>{{location}}</h3>
+    <ul>
+      <li>{{info}}</li>
+    </ul>
+</script>
 
   <!-- Navigation Bar
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -99,71 +106,71 @@
 
 <div id="mainDiv">
 
-<iframe src="map.html" frameborder="0" id="mapHTML">
-</iframe>
+  <iframe src="map.html" frameborder="0" id="mapHTML">
+  </iframe>
 
-<div class="container tab-content" id="homeContent">
-  <div class="contentOne" id="homeContOne">
-    <h4>Where Can You Afford to Buy a Home?</h4>
+  <div class="container tab-content" id="homeContent">
+    <div class="contentOne" id="homeContOne">
+      <h4>Where Can You Afford to Buy a Home?</h4>
+    </div>
+    <div id="homeContTwo">
+      <p>If you want to buy a house at the median price and earn <span><label for="test$" class="form-control-label">Test$</label></span></p>
+    </div>
+    <div class="contentThree" id="homeContThree">
+      <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+      <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
+      <!-- <div class="checkbox-form-group"> -->
+        <label>
+          <input type="checkbox" id="salaryCheckbox"> Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
+        </label>
+      <!-- </div> -->
+    </div>
+    <div id="aButton">
+      <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+    </div>
   </div>
-  <div id="homeContTwo">
-    <p>If you want to buy a house at the median price and earn <span><label for="test$" class="form-control-label">Test$</label></span></p>
-  </div>
-  <div class="contentThree" id="homeContThree">
-    <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
-    <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
-    <!-- <div class="checkbox-form-group"> -->
-      <label>
-        <input type="checkbox" id="salaryCheckbox"> Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
-      </label>
+
+  <div class="container tab-content" id="compareContent">
+    <div class="contentOne">
+    </div>
+    <div class="contentTwo">
+    </div>
+    <!-- <div id="contentThree"> -->
+      <canvas id="canvas" width="" height=""></canvas>
     <!-- </div> -->
+    <div id="aButton">
+      <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+    </div>
   </div>
-  <div id="aButton">
-    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+
+  <div class="container tab-content" id="affordContent">
+    <div id="affordContOne">
+      <h3>Home Affordability Calculator</h3>
+      <div class="slider">
+        <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
+        <input type="range" id="incomeSlide" min=0 value=2000 max=30000 step=100 class='sliders'>
+      </div>
+      <div class="slider">
+        <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
+        <input type="range" id="dpSlide" min=10000 value=30000 max=100000 step=500 class='sliders'>
+      </div>
+      <div class="slider">
+        <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
+        <input type="range" id="interestSlide" min=0.01 value=0.04 max=0.15 step=0.0025 class='sliders'>
+      </div>
+      <div class="slider">
+        <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
+        <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
+      </div>
+      <!-- Tie into map rendering -->
+      <button id='button1' class='btn btn-info'>Where can I afford home?</button>
+      <div id='percentHomes'></div>
+    </div>
+    <div class="aButton">
+      <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
+    </div>
   </div>
 </div>
-
-<div class="container tab-content" id="compareContent">
-  <div class="contentOne">
-  </div>
-  <div class="contentTwo">
-  </div>
-  <!-- <div id="contentThree"> -->
-    <canvas id="canvas" width="" height=""></canvas>
-  <!-- </div> -->
-  <div id="aButton">
-    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
-  </div>
-</div>
-
-<div class="container tab-content" id="affordContent">
-  <div id="affordContOne">
-    <h3>Home Affordability Calculator</h3>
-    <div class="slider">
-      <p><b>Monthly Income:</b> $</p><p id='incSlideVal'></p>
-      <input type="range" id="incomeSlide" min=0 value=2000 max=30000 step=100 class='sliders'>
-    </div>
-    <div class="slider">
-      <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
-      <input type="range" id="dpSlide" min=10000 value=30000 max=100000 step=500 class='sliders'>
-    </div>
-    <div class="slider">
-      <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
-      <input type="range" id="interestSlide" min=0.01 value=0.04 max=0.15 step=0.0025 class='sliders'>
-    </div>
-    <div class="slider">
-      <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
-      <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
-    </div>
-    <!-- Tie into map rendering -->
-    <button id='button1' class='btn btn-info'>Where can I afford home?</button>
-    <div id='percentHomes'></div>
-  </div>
-  <div class="aButton">
-    <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
-  </div>
-</div>
-
 <!-- <div class="container">
   <div class="row" id="overlay">
     <div class="col-sm-12 pull-right" id="info"> -->
@@ -243,8 +250,19 @@
   </div>
 </div>
 
+<div id="funkDiv">
+  <div id="funkContent"></div>
+  <div id="funkVideo">
+      <video autoplay loop poster="vid/clouds.jpg" id="video" muted="true">
+        <source src="vid/cloudsVid.mp4" type="video/mp4">
+        <source src="vid/clouds.ogv" type="video/ogg">
+      </video>
+  </div>
+</div>
+
 <footer>
     <a href="/about">&copy; 2016 Team Atlas</a>
+    <a href="/funk">funk</a>
 </footer>
 
 <!-- End Document
@@ -274,6 +292,9 @@
   <script type="text/javascript" src="js/charts.js"></script>
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
+
+  <script type="text/javascript" src="js/plusFunk.js"></script>
+  <script type="text/javascript" src="js/funkController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
 
 
