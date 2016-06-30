@@ -75,6 +75,8 @@
   };
 
   charting.viewChart = function () {
+    var chartModal = $('#chartModal');
+    chartModal.modal('show');
     var ctx = $('#chart');
     var myLineChart = new Chart(ctx, {
       type: 'bar',
@@ -89,6 +91,7 @@
   };
 
   $('#viewChart').on('click', function(){
+    console.log('clicked viewCharts');
     charting.viewChart();
     $('#button').fadeIn(700);
     $('#viewChart').hide();
