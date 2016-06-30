@@ -138,32 +138,34 @@
 
       <!-- Afford Page Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-      <section class="tab-content" id="affordContent">
-        <h3>Home Affordability Calculator</h3>
-        <div class="">
-          <p><b>Annual Income:</b> $</p><p id='incSlideVal'></p>
-          <input type="range" id="incomeSlide" min=0 value=2000 max=30000 step=500 class='sliders'>
-        </div>
-        <div class="">
-          <p><b>Percentage of Monthly Income you're willing to put towards Home:</b> $</p><p id='percentSlideVal'></p>
-          <input type="range" id="percentSlide" min=0.05 value=0.10 max=0.60 step=0.005 class='sliders'>
-        </div>
-        <div class="">
-          <p><b>Anticipated Down Payment:</b> $</p><p id='dpSlideVal'>' '</p>
-          <input type="range" id="dpSlide" min=10000 value=30000 max=100000 step=500 class='sliders'>
-        </div>
-        <div class="">
-          <p><b>Anticipated Insurance Rate:</b>_</p><p id='interestSlideVal'> </p>
-          <input type="range" id="interestSlide" min=0.01 value=0.04 max=0.15 step=0.0025 class='sliders'>
-        </div>
-        <div class="">
-          <p><b>Anticipated Monthly Utilities costs:</b> $</p><p id='utilitySlideVal'> </p>
-          <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
-        </div>
-        <!-- Tie into map rendering -->
-        <button id='button1' class='btn btn-info'>Where can I afford home?</button>
-        <div id='percentHomes'></div>
-      </section>
+      <!-- <div class="row"> -->
+        <section class="tab-content" id="affordContent">
+          <h3>Where Can I Afford To Live?</h3>
+          <div class="col-md-11 afford-div">
+            <p id='incSlideVal'></p>
+            <input type="range" id="incomeSlide" min=0 value=54000 max=300000 step=2000 class='sliders'>
+          </div>
+          <div class="col-md-11 afford-div">
+            <p id='percentSlideVal'></p>
+            <input type="range" id="percentSlide" min=0.05 value=0.30 max=0.60 step=0.01 class='sliders'>
+          </div>
+          <div class="col-md-11 afford-div">
+            <p id='dpSlideVal'></p>
+            <input type="range" id="dpSlide" min=10000 value=10000 max=100000 step=2000 class='sliders'>
+          </div>
+          <div class="col-md-11 afford-div">
+            <p id='interestSlideVal'>_</p><p > </p>
+            <input type="range" id="interestSlide" min=0.01 value=0.045 max=0.15 step=0.0025 class='sliders'>
+          </div>
+          <div class="col-md-11 afford-div">
+            <p id='utilitySlideVal'></p>
+            <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
+          </div>
+          <!-- Tie into map rendering -->
+          <button id='button1' class='btn btn-info'>Where can I afford a home?</button>
+          <div id='percentHomes'></div>
+        </section>
+      <!-- </div> -->
 
       <!-- charts here? -->
 

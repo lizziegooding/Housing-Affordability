@@ -1,4 +1,11 @@
 
+function User() {
+  this.income = $('#incomeSlide').val();
+  this.downPayment = $('#dpSlide').val();
+  this.interestRate = Math.round($('#interestSlide').val())*100;
+  this.utilityPayment = $('#utilitySlide').val();
+}
+
 
 var colorArray = ['#ffffb2','#fed976','#feb24c','#fd8d3c','#fc4e2a','#e31a1c','#b10026'];
 
