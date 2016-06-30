@@ -90,6 +90,7 @@
 
     $('#incomeSlide').on('input', function() {
       $('#incSlideVal').html('<b>Annual Income:</b> $' + $(this).val());
+      // setPaint($('#incomeSlide').val());
     });
 
     $('#percentSlide').on('input', function() {
