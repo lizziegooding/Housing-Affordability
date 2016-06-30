@@ -24,9 +24,9 @@ function initMap(){
       'data': myJSON
     });
 
-    map.addSource('county-hover', {
-      type: 'vector',
-      url: 'mapbox://lizziegooding.9nxokstj'
+    map.addSource('counties', {
+      'type': 'vector',
+      'url': 'mapbox://mapbox.82pkq93d'
     });
 
     //Add loaded data and style
@@ -54,18 +54,41 @@ function initMap(){
           ]
         },
         'fill-opacity':  1}
-    },'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
+    },'admin-3-4-boundaries-bg');
+    // 'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
 
+    // map.addLayer({
+    //   'id': 'dummy-fill',
+    //   'type': 'fill',
+    //   'source': 'county-hover-census',
+    //   'source-layer': 'county-hover-census',
+    //   'layout': {},
+    //   'paint': {
+    //     'fill-color': '#627BC1',
+    //     'fill-opacity': 0
+    //   }
+    // });
     map.addLayer({
-      'id': 'dummy-fill',
+      'id': 'counties',
       'type': 'fill',
-      'source': 'county-hover',
-      'source-layer': 'county-hover',
-      'layout': {},
+      'source': 'counties',
+      'source-layer': 'original',
       'paint': {
-        'fill-color': '#627BC1',
-        'fill-opacity': 0
+        // 'fill-outline-color': 'rgba(0,0,0,0.1)',
+        'fill-color': 'rgba(0,0,0,0)'
       }
+    });
+    map.addLayer({
+      'id': 'counties-highlighted',
+      'type': 'fill',
+      'source': 'counties',
+      'source-layer': 'original',
+      'paint': {
+        // 'fill-outline-color': '#484896',
+        'fill-color': '#FFF',
+        'fill-opacity': 0.7
+      },
+      'filter': ['in', 'FIPS', '']
     });
     // map.addLayer({
     //   'id': 'state-borders',
@@ -77,18 +100,18 @@ function initMap(){
     //     'line-width': 0.5
     //   }
     // });
-    map.addLayer({
-      'id': 'county-hover',
-      'type': 'fill',
-      'source': 'county-hover',
-      'source-layer': 'county-hover',
-      'layout': {},
-      'paint': {
-        'fill-color': '#FFF',
-        'fill-opacity': 0.7
-      },
-      'filter': ['==', 'GEOID', '']
-    });
+    // map.addLayer({
+    //   'id': 'county-hover-census',
+    //   'type': 'fill',
+    //   'source': 'county-hover-census',
+    //   'source-layer': 'county-hover-census',
+    //   'layout': {},
+    //   'paint': {
+    //     'fill-color': '#FFF',
+    //     'fill-opacity': 0.7
+    //   },
+    //   'filter': ['==', 'GEOID', '']
+    // });
 
     // Create a new popup
     var popup = new mapboxgl.Popup({
@@ -97,11 +120,11 @@ function initMap(){
     });
 
     map.on('mousemove', function(e) {
-      var features = map.queryRenderedFeatures(e.point, { layers: ['dummy-fill'] });
+      var features = map.queryRenderedFeatures(e.point, { layers: ['counties'] });
       if (features.length) {
-        map.setFilter('county-hover', ['==', 'GEOID', features[0].properties.GEOID]);
+        map.setFilter('counties-highlighted', ['==', 'FIPS', features[0].properties.FIPS]);
       } else {
-        map.setFilter('county-hover', ['==', 'GEOID', '']);
+        map.setFilter('counties-highlighted', ['==', 'FIPS', '']);
       }
       var myJSONfeatures = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
       // map.getCanvas().style.cursor = (myJSON.length) ? 'pointer' : '';
@@ -116,7 +139,9 @@ function initMap(){
       // Populate the popup and set its coordinates
       // based on the feature found.
       popup.setLngLat(map.unproject(e.point))
-          .setHTML(feature.properties.Geography)
+          .setHTML('<b>' + feature.properties.Geography + '</b>' +
+          '<br>Median Home Value (Census 2014): $' + parseInt(feature.properties.Median_Hom).toLocaleString('en-US') +
+          '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI.toLocaleString('en-US') )
           .addTo(map);
     });
 
