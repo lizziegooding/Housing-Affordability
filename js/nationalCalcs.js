@@ -61,7 +61,7 @@
     var interestRate = value4;
     var requiredMonthly = array.map(function(countyMedian){
       var payment = {};
-      var mortgateTotal = Math.round((countyMedian - downPayment)*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
+      var mortgateTotal = Math.round((countyMedian - (countyMedian * downPayment))*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
       payment.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
       payment.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
       payment.mUtilities = Math.round(utilities*100) / 100;
@@ -84,7 +84,7 @@
 
     $('#incSlideVal').html('<b>Annual Income:</b> $' + $('#incomeSlide').val());
     $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($('#percentSlide').val()*100)*100) / 100 + '%');
-    $('#dpSlideVal').html('<b>Anticipated Down Payment:</b> $' + $('#dpSlide').val());
+    $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> ' + Math.round(($('#dpSlide').val()*100)*100) / 100 + '%');
     $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($('#interestSlide').val()*100)*100) / 100 + '%');
     $('#utilitySlideVal').html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $('#utilitySlide').val());
 
@@ -97,7 +97,7 @@
     });
 
     $('#dpSlide').on('input', function() {
-      $('#dpSlideVal').html('<b>Anticipated Down Payment:</b> $' + $(this).val());
+      $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> $' + Math.round(($(this).val()*100)*100) / 100 + '%');
     });
 
     $('#interestSlide').on('input', function() {
@@ -113,9 +113,19 @@
     national.buildCountyHomes();
     $('#percentHomes').empty();
     $('#percentHomes').append(national.whereCanIBuy(national.countyHomes, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val(), $('#percentSlide').val()));
-    // fetchUpdatedMHV(addNewMapLayer);
-    setPaint($('#incomeSlide').val());
+    var updateCalc = calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val());
+    // document.getElementById('mapHTML').contentWindow.affordCountyMHV = calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val());
+    document.getElementById('mapHTML').contentWindow.map.getSource('affordCountyMHV').setData(updateCalc);
+    setPaint($('#incomeSlide').val(), colorArray);
   });
+  //or countyMHV
+  // map.addSource('affordCountyMHV', {
+  //   'type': 'geojson',
+  //   'data': affordCountyMHV
+  // });
+  // document.getElementById('mapHTML').contentWindow.map.addSource('affordCountyMHV', {
+  //   'type': 'geojson',
+  //   'data': affordCountyMHV
 
   $(function(){
     national.nationalMedian(national.buildCountyHomes);
