@@ -21,6 +21,11 @@ function draw(data) {
       scales: {
         yAxes: [{
           ticks: { beginAtZero:true}
+        }],
+        xAxes: [{
+          ticks: {
+            display: false
+          }
         }]
       }
     }

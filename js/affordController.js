@@ -3,9 +3,9 @@
 
   affordController.index = function() {
     $('.tab-content').hide();
-    $('iframe').fadeIn(700);
-    $('#overlay').fadeIn(700);
-    $('#affordContent').fadeIn(700);
+    $('iframe').show();
+    // $('#overlay').fadeIn(700);
+    $('#affordContent').show();
 
     console.log('calling affordController');
   };
