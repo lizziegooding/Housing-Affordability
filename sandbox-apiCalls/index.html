@@ -13,6 +13,18 @@
 
     <body>
       <div class='container'>
+
+
+        <select id='stateSelect'>
+          <option>--Select State--</option>
+        </select>
+
+        <button id='button'>Select State</button>
+
+        <button id='viewChart' class='hide-initial'>View Chart</button>
+
+        <canvas id="chart" width="" height=""></canvas>
+
         <div class='row'>
           <div class='col-sm-4'>
             <section class="tab-content" id="affordContent">
@@ -52,8 +64,8 @@
           </div>
         </div> -->
       </div>
-      <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-      <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js'></script>
       <!-- Latest compiled and minified JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -63,10 +75,11 @@
       <script src="http://cdn-geoweb.s3.amazonaws.com/terraformer-arcgis-parser/1.0.4/terraformer-arcgis-parser.min.js"></script>
       <script src='app.js'></script>
       <script src='cityMod.js'></script>
+      <script src='charting.js'></script>
       <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg-HUqHhznjp_zNNOgERRwm_ONHtJvCD4&callback=initialize" async defer></script> -->
     </body>
 
-    <div class="container tab-content" id="affordContent">
+    <!-- <div class="container tab-content" id="affordContent">
       <div id="affordContOne">
         <h3>Where Can I Afford To Live?</h3>
         <div class="col-md-11 afford-div">
@@ -90,13 +103,13 @@
           <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10 class='sliders'>
         </div>
         <!-- Tie into map rendering -->
-        <button id='button1' class='btn btn-info'>Where can I afford a home?</button>
+        <!-- <button id='button1' class='btn btn-info'>Where can I afford a home?</button>
         <div id='percentHomes'></div>
       </div>
       <div class="aButton">
         <button class="btn btn-default" href="" id="assumpButton">Assumptions</button>
       </div>
-    </div>
+    </div> -->
 
 
   </html>

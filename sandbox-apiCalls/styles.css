@@ -10,6 +10,10 @@ html, body {
 
 }
 
+.hide-initial {
+  display: none;
+}
+
 img {
   height: 40px;
   width: 40px;

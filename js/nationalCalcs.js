@@ -53,86 +53,6 @@
     });
   };
 
-  $('#salarySubmit').on('click', function(e) {
-    e.preventDefault();
-    var $salaryInput = $('#salaryInput').val();
-    if (isNaN(parseFloat($salaryInput))) {
-      console.log('will change class to show user invalid input');
-    } else {
-      setPaint($salaryInput);
-    }
-  });
-
-  //Calculate annual and montly housing costs based on 20% down (no PMI)
-  function updateCalcAffordability(json, value1, value2, value3, value4, value5){
-    var monthlyIncome = value1 / 12;
-    var percentIncome = value5;
-    var utilities = value2;
-    var downPayment = value3;
-    var interestRate = value4;
-    json.features.forEach(function(ele){
-      var e = ele.properties;
-      var countyMedian = e.Median_Hom;
-      var mortgateTotal = Math.round((countyMedian - downPayment)*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
-      e.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
-      e.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
-      e.mUtilities = Math.round(utilities*100) / 100;
-      e.mPropertyTax = Math.round((mortgateTotal * 0.5983 * 0.02 / 12)*100) / 100;
-      e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
-      e.aPayment = e.mPayment * 12;
-    });
-    //properties added;
-    return json;
-  }
-
-  function addNewMapLayer () {
-
-    var map = $('map');
-
-    map.addSource('myJSON', {
-      'type': 'geojson',
-      'data': myJSON
-    });
-
-    map.addLayer({
-      'id': 'myJSON',
-      'type': 'fill',
-      'source': 'myJSON',
-      // 'source-layer': 'myJSON',
-      'layout': { visibility: 'visible'},
-      'paint': {
-        'fill-outline-color': '#FFF',
-        'fill-color': {
-          property: 'aPayment',
-          stops: [
-                  [8100, '#ffffb2'],
-                  [10800, '#fed976'],
-                  [13500, '#feb24c'],
-                  [16200, '#fd8d3c'],
-                  [18900, '#fc4e2a'],
-                  [21600, '#e31a1c'],
-                  [24300, '#b10026'],
-          ]
-        },
-        'fill-opacity':  1}
-    });
-  }
-
-  //need to run fetchMHV here i believe?
-  function fetchUpdatedMHV(callback){
-    $.getJSON('data/County_MHV_WGS84.geojson')
-    .done(function(data){
-      console.log('Success!');
-      testGeojson = data;
-      updatedJSON = updateCalcAffordability(testGeojson, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val(), $('#percentSlide').val());
-      //Init map page
-      callback();
-    })
-    .fail(function() { console.log('Problem with data!'); })
-    .always(function() { console.log('Try to get JSON data from server.');
-    });
-  }
-
   national.whereCanIBuy = function (array, value1, value2, value3, value4, value5) {
     var monthlyIncome = value1 / 12;
     var percentIncome = value5;
@@ -145,7 +65,7 @@
       payment.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
       payment.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
       payment.mUtilities = Math.round(utilities*100) / 100;
-      payment.mPropertyTax = Math.round((mortgateTotal * 0.5983 * 0.02 / 12)*100) / 100;
+      payment.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12)*100) / 100;
       payment.mPayment = payment.mMortgage + payment.mInsurance + payment.mUtilities + payment.mPropertyTax;
       payment.aPayment = payment.mPayment * 12;
       return payment;
@@ -190,10 +110,10 @@
   });
 
   $('#button1').on('click', function(){
-    fetchUpdatedMHV(addNewMapLayer);
     national.buildCountyHomes();
     $('#percentHomes').empty();
     $('#percentHomes').append(national.whereCanIBuy(national.countyHomes, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val(), $('#percentSlide').val()));
+    // fetchUpdatedMHV(addNewMapLayer);
     setPaint($('#incomeSlide').val());
   });
 
@@ -203,3 +123,74 @@
 
   module.national = national;
 })(window);
+
+
+//Calculate annual and montly housing costs based on 20% down (no PMI)
+// function updateCalcAffordability(json, value1, value2, value3, value4, value5){
+//   var monthlyIncome = value1 / 12;
+//   var percentIncome = value5;
+//   var utilities = value2;
+//   var downPayment = value3;
+//   var interestRate = value4;
+//   json.features.forEach(function(ele){
+//     var e = ele.properties;
+//     var countyMedian = e.Median_Hom;
+//     var mortgateTotal = Math.round((countyMedian - downPayment)*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
+//     e.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
+//     e.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
+//     e.mUtilities = Math.round(utilities*100) / 100;
+//     e.mPropertyTax = Math.round((mortgateTotal * 0.5983 * 0.02 / 12)*100) / 100;
+//     e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
+//     e.aPayment = e.mPayment * 12;
+//   });
+//   //properties added;
+//   return json;
+// }
+
+// function addNewMapLayer () {
+//
+//   $('#mapHTML).contentWindow.map.setPaintProperty
+//
+//   map.addSource('myJSON', {
+//     'type': 'geojson',
+//     'data': updatedJSON
+//   });
+//
+//   map.addLayer({
+//     'id': 'myJSON',
+//     'type': 'fill',
+//     'source': 'myJSON',
+//     // 'source-layer': 'myJSON',
+//     'layout': { visibility: 'visible'},
+//     'paint': {
+//       'fill-outline-color': '#FFF',
+//       'fill-color': {
+//         property: 'aPayment',
+//         stops: [
+//                 [8100, '#ffffb2'],
+//                 [10800, '#fed976'],
+//                 [13500, '#feb24c'],
+//                 [16200, '#fd8d3c'],
+//                 [18900, '#fc4e2a'],
+//                 [21600, '#e31a1c'],
+//                 [24300, '#b10026'],
+//         ]
+//       },
+//       'fill-opacity':  1}
+//   });
+// }
+//
+// //need to run fetchMHV here i believe?
+// function fetchUpdatedMHV(callback){
+//   $.getJSON('data/County_MHV_WGS84.geojson')
+//   .done(function(data){
+//     console.log('Success!');
+//     testGeojson = data;
+//     updatedJSON = updateCalcAffordability(testGeojson, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val(), $('#percentSlide').val());
+//     //Init map page
+//     callback();
+//   })
+//   .fail(function() { console.log('Problem with data!'); })
+//   .always(function() { console.log('Try to get JSON data from server.');
+//   });
+// }
