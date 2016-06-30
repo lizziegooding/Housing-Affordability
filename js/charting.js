@@ -64,6 +64,8 @@
     var counter = 0;
     request.state = $('#stateSelect').val();
     censusModule.APIRequest(request, function(response){
+      charting.baseData.labels = [];
+      charting.baseData.datasets[0].data = [];
       response.data.forEach(function(element){
         var split = element.name.split(',');
         var countyName = split[0];
@@ -78,6 +80,7 @@
     var chartModal = $('#chartModal');
     chartModal.modal('show');
     var ctx = $('#chart');
+    console.log('charting.baseData: ', charting.baseData);
     var myLineChart = new Chart(ctx, {
       type: 'bar',
       data: charting.baseData,
