@@ -38,6 +38,7 @@
       request.state = element;
       censusModule.APIRequest(request, function(response){
         national.nationData.push(response.data);
+        // console.log(response);
         counter += 1;
         if (counter === national.stateArray.length) {
           viewFunc();
