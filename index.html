@@ -145,11 +145,28 @@
       <section class="tab-content" id="homeContent">
         <h3>Where Can You Afford to Buy a Home?</h3>
         <p>If you want to buy a house at the median price and earn</p>
-        <form>
-          <div class="form-group row">
+        <div class="row">
+          <!-- <form>
+            <label class="sr-only">Salary Input</label>
             <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
-            <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
-          </div>
+            <button type="submit" id="salarySubmit">
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+          </form>
+        </div> -->
+
+        <form>
+          <label class="sr-only">Salary Input</label>
+          <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+          <span class="glyphicon glyphicon-arrow-right">
+            <button type="submit" id="salarySubmit">
+            </button>
+          </span>
+        </form>
+      </div>
+
+
+
           <div class="form-group row">
             <label>
               <input type="checkbox" id="salaryCheckbox">Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
@@ -157,8 +174,8 @@
           </div>
           <div class="form-group row">
             Or try:
-            <button id="natAvgBtn" type="submit" name="natAvgBtn">national average</button>
-            <button id="minWageBtn" type="submit" name="minWageBtn">minimum wage</button>
+            <button id="natAvgBtn" class="btn btn-primary" type="submit" name="natAvgBtn">national average</button>
+            <button id="minWageBtn" class="btn btn-default" type="submit" name="minWageBtn">minimum wage</button>
           </div>
         </form>
         <div class='my-legend'>
