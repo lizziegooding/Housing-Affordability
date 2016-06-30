@@ -2,10 +2,10 @@
   var affordController = {};
 
   affordController.index = function() {
+    $('#mainDiv').show();
     $('#funkDiv').hide();
     $('.tab-content').hide();
     $('iframe').show();
-    // $('#overlay').fadeIn(700);
     $('#affordContent').show();
 
     console.log('calling affordController');

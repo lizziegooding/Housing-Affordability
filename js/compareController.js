@@ -2,11 +2,10 @@
   var compareController = {};
 
   compareController.index = function() {
+    $('#mainDiv').show();
     $('#funkDiv').hide();
-
     $('.tab-content').hide();
     $('iframe').show();
-    // $('#overlay').fadeIn(700);
     $('#compareContent').show();
 
     console.log('calling compareController');
