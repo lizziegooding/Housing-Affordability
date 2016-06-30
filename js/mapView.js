@@ -7,8 +7,8 @@ function initMap(callback, initialSalary, source){
   window.map = new mapboxgl.Map({
     container: 'map', //HTML element to initialize the map in (or element id as string)
     zoom: 3.15,
-    // minZoom: 1, //Default of 0 (world)
-    // maxZoom: 12, //Default of 20 (local)
+    minZoom: 1, //Default of 0 (world)
+    maxZoom: 12, //Default of 20 (local)
     center: [-80.7129,40.0902], //LatLng array in decimal degrees
     style: 'mapbox://styles/lizziegooding/ciq1cofi8003ybknqhk5pfruz'
     //Basemap style; can be a preset from mapbox or a user defined style
@@ -18,10 +18,10 @@ function initMap(callback, initialSalary, source){
   //Once the map has loaded
   map.on('load', function () {
     console.log('load data');
-    //Create new GeoJSON layer 'myJSON'
-    map.addSource('myJSON', {
+    //Create new GeoJSON layer 'affordCountyMHV'
+    map.addSource('affordCountyMHV', {
       'type': 'geojson',
-      'data': myJSON
+      'data': affordCountyMHV
     });
 
     map.addSource('counties', {
@@ -31,10 +31,10 @@ function initMap(callback, initialSalary, source){
 
     //Add loaded data and style
     map.addLayer({
-      'id': 'myJSON',
+      'id': 'affordCountyMHV',
       'type': 'fill',
-      'source': 'myJSON',
-      'source-layer': 'myJSON',
+      'source': 'affordCountyMHV',
+      'source-layer': 'affordCountyMHV',
       'layout': { visibility: 'visible'},
       'paint': {
         'fill-color': '#FFF',
@@ -54,7 +54,7 @@ function initMap(callback, initialSalary, source){
         // },
         'fill-opacity':  1}
     },'admin-3-4-boundaries-bg');
-    console.log('Added main myJSON layer');
+    console.log('Added main affordCountyMHV layer');
     map.addLayer({
       'id': 'counties',
       'type': 'fill',
@@ -89,14 +89,14 @@ function initMap(callback, initialSalary, source){
       } else {
         map.setFilter('counties-highlighted', ['==', 'FIPS', '']);
       }
-      var myJSONfeatures = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
+      var affordCountyMHVfeatures = map.queryRenderedFeatures(e.point, { layers: ['affordCountyMHV'] });
 
-      if (!myJSONfeatures.length) {
+      if (!affordCountyMHVfeatures.length) {
         popup.remove();
         return;
       }
 
-      var feature = myJSONfeatures[0];
+      var feature = affordCountyMHVfeatures[0];
 
       // Populate the popup and set its coordinates
       // based on the feature found.
@@ -111,18 +111,3 @@ function initMap(callback, initialSalary, source){
 
   });//END onLoad
 }
-
-function setPaint(userSalary, source){
-  if(source === 'map'){
-    map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
-  }
-  else {
-    console.log('not first time calling set Paint');
-    document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
-  }
-
-  // document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
-}
-
-//Change map based on user input
-//map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
