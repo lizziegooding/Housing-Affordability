@@ -24,9 +24,9 @@ function initMap(){
       'data': myJSON
     });
 
-    map.addSource('states', {
-      'type': 'geojson',
-      'data': 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_1_states_provinces.geojson'
+    map.addSource('county-hover', {
+      type: 'vector',
+      url: 'mapbox://lizziegooding.9nxokstj'
     });
 
     //Add loaded data and style
@@ -57,45 +57,70 @@ function initMap(){
     },'admin-2-boundaries', 'admin-3-4-boundaries','admin-2-boundaries-bg', 'admin-3-4-boundaries-bg','place-city-lg-s','state-label-md', 'place-city-lg-n');
 
     map.addLayer({
-      'id': 'state-fills',
+      'id': 'dummy-fill',
       'type': 'fill',
-      'source': 'states',
+      'source': 'county-hover',
+      'source-layer': 'county-hover',
       'layout': {},
       'paint': {
         'fill-color': '#627BC1',
         'fill-opacity': 0
       }
     });
+    // map.addLayer({
+    //   'id': 'state-borders',
+    //   'type': 'line',
+    //   'source': 'states',
+    //   'layout': {},
+    //   'paint': {
+    //     'line-color': '#DEDEDE',
+    //     'line-width': 0.5
+    //   }
+    // });
     map.addLayer({
-      'id': 'state-borders',
-      'type': 'line',
-      'source': 'states',
-      'layout': {},
-      'paint': {
-        'line-color': '#DEDEDE',
-        'line-width': 0.5
-      }
-    });
-    map.addLayer({
-      'id': 'route-hover',
+      'id': 'county-hover',
       'type': 'fill',
-      'source': 'states',
+      'source': 'county-hover',
+      'source-layer': 'county-hover',
       'layout': {},
       'paint': {
         'fill-color': '#FFF',
         'fill-opacity': 0.7
       },
-      'filter': ['==', 'name', '']
+      'filter': ['==', 'GEOID', '']
+    });
+
+    // Create a new popup
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
     });
 
     map.on('mousemove', function(e) {
-      var features = map.queryRenderedFeatures(e.point, { layers: ['state-fills'] });
+      var features = map.queryRenderedFeatures(e.point, { layers: ['dummy-fill'] });
       if (features.length) {
-        map.setFilter('route-hover', ['==', 'name', features[0].properties.name]);
+        map.setFilter('county-hover', ['==', 'GEOID', features[0].properties.GEOID]);
       } else {
-        map.setFilter('route-hover', ['==', 'name', '']);
+        map.setFilter('county-hover', ['==', 'GEOID', '']);
       }
+      var myJSONfeatures = map.queryRenderedFeatures(e.point, { layers: ['myJSON'] });
+      // map.getCanvas().style.cursor = (myJSON.length) ? 'pointer' : '';
+
+      if (!myJSONfeatures.length) {
+        popup.remove();
+        return;
+      }
+
+      var feature = myJSONfeatures[0];
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      popup.setLngLat(map.unproject(e.point))
+          .setHTML(feature.properties.Geography)
+          .addTo(map);
     });
+
+    // });
 
   });//END onLoad
 
