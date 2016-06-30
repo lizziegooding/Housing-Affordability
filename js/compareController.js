@@ -2,7 +2,6 @@
   var compareController = {};
 
   compareController.index = function() {
-    $('#mainDiv').show();
     $('#funkDiv').hide();
     $('.tab-content').hide();
     $('iframe').show();
