@@ -163,7 +163,7 @@
     }
 
     $('#incSlideVal').html('<b>Annual Income:</b> $' + $('#incomeSlide').val());
-    $('#percentSlideVal').html('<b>Percentage of income towards mortgage:</b> ' + Math.round(($('#percentSlide').val()*100)*100) / 100 + '%');
+    $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($('#percentSlide').val()*100)*100) / 100 + '%');
     $('#dpSlideVal').html('<b>Anticipated Down Payment:</b> $' + $('#dpSlide').val());
     $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($('#interestSlide').val()*100)*100) / 100 + '%');
     $('#utilitySlideVal').html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $('#utilitySlide').val());
@@ -173,7 +173,7 @@
     });
 
     $('#percentSlide').on('input', function() {
-      $('#percentSlideVal').html('<b>Percentage of Income going towards Home:</b> $' + Math.round(($(this).val()*100)*100) / 100 + '%');
+      $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($(this).val()*100)*100) / 100 + '%');
     });
 
     $('#dpSlide').on('input', function() {
