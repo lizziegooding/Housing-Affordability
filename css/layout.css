@@ -38,7 +38,7 @@
   min-width: 175px;
 }
 
-#homeContOne {
+/*#homeContOne {
   text-align: center;
   height: 15%;
   background-color: #fff;
@@ -56,15 +56,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+}*/
 
-#affordContent {
+/*#affordContent {
   /*width: 100%;*/
   margin: 2%;
   top: 0;
   margin-top: 0;
   /*position: static;*/
-}
+/*}
 
 #affordContent h3 {
   text-align: center;
@@ -73,16 +73,16 @@
 
 #affordContent button {
   /*margin-top: 5px;*/
-  margin-right: 12.5%;
+  /*margin-right: 12.5%;
   margin-left: 12.5%;
   width: 75%;
-}
+}*/
 
 
-#affordContOne {
+/*#affordContOne {
   height: 85%;
   background-color: #fff;
-}
+}*/
 
 .slider {
   height: 20%;
