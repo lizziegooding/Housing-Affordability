@@ -1,0 +1,22 @@
+
+/* Content Display
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.tab-content {
+  height: 100%;
+  z-index: 2;
+  /*position: absolute;*/
+  padding-top: 80px;
+  /*padding-bottom: 10px;*/
+}
+
+footer {
+  position: fixed;
+  left: 1;
+  bottom: 1;
+  z-index: 1;
+}
+
+/*---funk page--*/
+#video {
+  width: 50%;
+}

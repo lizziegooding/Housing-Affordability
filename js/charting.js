@@ -64,6 +64,8 @@
     var counter = 0;
     request.state = $('#stateSelect').val();
     censusModule.APIRequest(request, function(response){
+      charting.baseData.labels = [];
+      charting.baseData.datasets[0].data = [];
       response.data.forEach(function(element){
         var split = element.name.split(',');
         var countyName = split[0];
@@ -75,7 +77,18 @@
   };
 
   charting.viewChart = function () {
-    var ctx = $('#chart');
+    var chartModal = $('#chartModal');
+    chartModal.modal('show');
+
+// remove iframes because a new iframe is appended onto the old one each time you make a call
+// cleared out canvasHolder and then appended a new one so that the chart would only show one at a time
+    var ctx = $('<canvas>');
+    console.log('charting.baseData: ', charting.baseData);
+    var hiddeniFrame = $('.chartjs-hidden-iframe');
+    console.log('hidden iframe = ' , hiddeniFrame);
+    hiddeniFrame.remove();
+    $('#canvasHolder').empty();
+    $('#canvasHolder').append(ctx);
     var myLineChart = new Chart(ctx, {
       type: 'bar',
       data: charting.baseData,
@@ -89,6 +102,7 @@
   };
 
   $('#viewChart').on('click', function(){
+    console.log('clicked viewCharts');
     charting.viewChart();
     $('#button').fadeIn(700);
     $('#viewChart').hide();
