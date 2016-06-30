@@ -140,8 +140,8 @@ function initMap(){
       // based on the feature found.
       popup.setLngLat(map.unproject(e.point))
           .setHTML('<b>' + feature.properties.Geography + '</b>' +
-          '<br>Median Home Value (Census 2014): $' + feature.properties.Median_Hom +
-          '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI )
+          '<br>Median Home Value (Census 2014): $' + parseInt(feature.properties.Median_Hom).toLocaleString('en-US') +
+          '<br>Median Home Value (Zillow 2015): $' + feature.properties.ZHVI.toLocaleString('en-US') )
           .addTo(map);
     });
 
