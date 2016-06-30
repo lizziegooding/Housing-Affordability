@@ -1,4 +1,5 @@
-var data = ['54000','15080', '30000'];
+
+salaryChart = ['54000','15080'];
 
 function draw(data) {
 
@@ -31,5 +32,3 @@ function draw(data) {
     }
   });
 }
-
-draw(data);

@@ -19,8 +19,9 @@
       console.log('will change class to show user invalid input');
     } else {
       setPaint(salaryInput, 'index');
+      salaryStorage(salaryInput, salaryCurrency);
+      salaryChart[2] = JSON.parse(localStorage.salaryCurrency)[0];
     }
-    salaryStorage(salaryInput, salaryCurrency);
     console.log('salary storage called');
   });
 
