@@ -17,11 +17,11 @@
       // TODO: Create user dialogue to note invalid input. (Won't be necessary if we write an if statment to check for and remove and non-integers like 'e'.)
     } else {
       setPaint(salaryInput, 'index');
-      salaryStorage(salaryInput, salaryCurrency);
+      localStorageController.salaryStorage(salaryInput, salaryCurrency);
       charting.salaryChart[2] = JSON.parse(localStorage.salaryCurrency)[0];
     }
-    if (myChart) {
-      myChart.destroy();
+    if (charting.myChart) {
+      charting.myChart.destroy();
     }
   });
 

@@ -130,7 +130,7 @@
 // create median income chart
   charting.draw = function(data) {
     canvas.style.display = 'block';
-    myChart = new Chart(canvas, {
+    charting.myChart = new Chart(canvas, {
       type: 'bar',
       data: {
         labels: ['Median Household Income', 'Yearly Earnings At Minimum Wage', 'Your Income'],
