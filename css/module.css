@@ -56,6 +56,10 @@ ul.legend-labels li span {
   display: none;
 }
 
+#aboutContent h3 {
+  margin-top: 75px;
+}
+
 .about-div {
   margin: 2%;
   margin-top: 100px;
@@ -64,4 +68,5 @@ ul.legend-labels li span {
   text-align: left;
   border-radius: 10px;
   background-color: #00cccc;
+  z-index: 11;
 }
