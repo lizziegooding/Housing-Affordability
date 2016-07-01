@@ -3,10 +3,13 @@
   var mathObj = {};
 
   //Set initial affordability assumptions
-  mathObj.iSalary = 54000;
+  //National Median Household Income
+  mathObj.iSalary = 53482;
+  //Annual minimum wage earnings assuming federal minimum wage
+  mathObj.minSalary = 15080;
   mathObj.iUtilities = 250;
   mathObj.iDownPayment = 0.2;
-  mathObj.iInterest = 0.045;
+  mathObj.iInterest = 0.0385;
   mathObj.colorArray = ['#225378', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'];
 
   /* This function runs when the page loads. It performs the following actions:

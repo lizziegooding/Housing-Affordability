@@ -91,11 +91,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h1>US Housing Affordability App</h1>
+        <h1>US Housing Affordability</h1>
       </div>
       <div class="modal-body">
-        <h3>Welcome!</h3>
-        <p>This is where our instructions will go.</p>
+        <h3>Welcome</h3>
+        <p>Explore the map to see where a household earning $53,483, the national median household income in 2014, can afford to live. Areas shaded blue are locations considered affordable for these households, as they require 30% or less of a household’s income. Areas shaded red are considered unaffordable.<br><br>Use the form on the home page to see where you can afford to buy a home. Then use the tabs at the top right to explore how your income compares to national averages and to customize your assumed housing costs.</p>
         <div id="form">
           <div class="checkbox form-group">
             <label>
@@ -134,7 +134,6 @@
  </div>
 </div>
 
-
 <!-- Primary Page Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <iframe src="map.html" frameborder="0" id="mapHTML">
@@ -154,7 +153,7 @@
         <div class="row">
           <form>
             <div class="col-sm-8">
-              <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+              <input type="number" class="form-control" id="salaryInput" placeholder="$53,482">
             </div>
             <div class="col-sm-4">
               <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
@@ -206,7 +205,7 @@
 
         <div class="checkbox form-group caveat">
           <label>
-            <input type="checkbox" id="salaryCheckbox" checked>By checking this box, the salary entered will be used by our different affordability calculators to provide you with additional comparative data. Uncheck this box to opt out of this feature.
+            <input type="checkbox" id="salaryCheckbox" checked>*By checking this box, you agree to allow the salary entered to be used by our affordability calculators to provide you with additional comparative data. Uncheck this box to opt out of this feature.
           </label>
         </div>
       </section>
@@ -214,7 +213,7 @@
       <!-- Compare Tab Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="compareContent">
-        <h3>compare content header</h3>
+        <h3>How You Compare</h3>
         <p>blah blah blah</p>
 
         <select id='stateSelect'>
@@ -233,31 +232,36 @@
       <!-- Afford Tab Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="affordContent">
-        <h3>Where Can I Afford To Live?</h3>
-          <div class="col-md-11 afford-div">
-            <p id='incSlideVal'></p>
-            <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
-          </div>
-          <!-- <div class="col-md-11 afford-div">
-            <p id='percentSlideVal'></p>
-            <input type="range" id="percentSlide" min=0.05 value=0.30 max=0.60 step=0.01>
-          </div> -->
-          <div class="col-md-11 afford-div">
-            <p id='dpSlideVal'></p>
-            <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
-          </div>
-          <div class="col-md-11 afford-div">
-            <p id='interestSlideVal'></p>
-            <input type="range" id="interestSlide" min=0.01 value=0.045 max=0.15 step=0.0025>
-          </div>
-          <div class="col-md-11 afford-div">
-            <p id='utilitySlideVal'></p>
-            <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10>
-          </div>
-          <!-- Tie into map rendering -->
-          <button id='button1' class='btn btn-primary'>Check Stats</button>
-          <div id='percentHomes'></div>
 
+        <h3>Go in Greater Depth</h3>
+        <p>Get the full picture of the total cost of a single family home based on your down payment amount, mortgage rate, and total cost of utilities.</p>
+        <br />
+        <div class="panel panel-primary">
+          <div class="panel-heading">TOTAL COST OF OWNERSHIP</div>
+            <div class="panel-body">
+              <p id='incSlideVal'></p>
+              <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
+              <br />
+              <p id='dpSlideVal'></p>
+              <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
+              <br />
+              <p id='interestSlideVal'></p>
+              <input type="range" id="interestSlide" min=0.01 value=0.045 max=0.15 step=0.0025>
+              <br />
+              <p id='utilitySlideVal'></p>
+              <input type="range" id="utilitySlide" min=0 value=250 max=750 step=10>
+              <br />
+              <!-- Tie into map rendering -->
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <button id='button1' class='btn btn-danger'>Calculate</button>
+                  <br />
+                </div>
+              </div>
+              <br />
+              <div id='percentHomes'></div>
+            </div>
+        </div>
       </section>
 
 <!-- About Page Content

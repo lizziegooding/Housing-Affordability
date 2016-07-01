@@ -125,7 +125,7 @@
     }
   });
 
-  charting.salaryChart = ['54000','15080'];
+  charting.salaryChart = [mathObj.iSalary,mathObj.minSalary];
 
 // create median income chart
   charting.draw = function(data) {
