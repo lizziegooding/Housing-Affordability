@@ -209,14 +209,16 @@
         <br />
         <h4>Home Value</h4>
         <p>Interested in how the cost of a single family home in your county compares to others in your state? Select a state below for a county-by-county view of the median home value.</p>
-        <select id='stateSelect'>
-          <option>--Select State--</option>
-        </select>
-
-        <button id='button'class="btn btn-primary">View Home Values</button>
-
-        <canvas id="canvas" width="" height=""></canvas>
-
+        <div class="row">
+          <div class="col-md-5">
+            <select id='stateSelect'>
+              <option>--Select State--</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <button id='button'class="btn btn-primary">View Home Values</button>
+          </div>
+        </div>
       </section>
 
       <!-- Afford Tab Content
