@@ -53,7 +53,6 @@
     charting.populateFilter();
   });
   var $button = $('#button');
-  var $viewChart = $('#viewChart');
 
 // specifying the api request from the census
   var request = {
@@ -78,14 +77,16 @@
       response.data.forEach(function(element){
         var split = element.name.split(',');
         var countyName = split[0];
-        console.log(countyName);
+        //console.log(countyName);
         charting.baseData.labels.push(countyName);
         charting.baseData.datasets[0].data.push(element.median_home_value);
+
       });
+      charting.viewChart();
     });
   };
 
-// reder modal chart
+// render modal chart
   charting.viewChart = function () {
     var chartModal = $('#chartModal');
     chartModal.modal('show');
@@ -108,20 +109,12 @@
     });
   };
 
-  $viewChart.on('click', function(){
-    charting.viewChart();
-    $button.fadeIn(700);
-    $viewChart.hide();
-  });
-
   $button.on('click', function(){
     if ($('#stateSelect').val() == '--Select State--') {
       alert('You must select a state.');
     } else {
       charting.stateMedian();
       $('#chart').empty();
-      $button.hide();
-      $viewChart.fadeIn(700);
     }
   });
 

@@ -1,7 +1,7 @@
 (function(module) {
   var aboutController = {};
 
-  // show all about tab elements and populate page with fetchall
+  // show all about tab elements
   aboutController.index = function() {
     $('iframe').hide();
     $('.tab-content').hide();

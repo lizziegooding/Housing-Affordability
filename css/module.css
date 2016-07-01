@@ -56,7 +56,6 @@ ul.legend-labels li span {
   z-index: 50;
 }
 
-
 /* About Link Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .about-div {
@@ -66,6 +65,7 @@ ul.legend-labels li span {
   text-align: left;
   border-radius: 10px;
   background-color: #00cccc;
+  z-index: 11;
 }
 
 #about {

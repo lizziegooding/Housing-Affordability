@@ -100,8 +100,8 @@
 
     $incSlideVal.html('<b>Annual Income:</b> $' + $incomeSlide.val());
     $dpSlideVal.html('<b>Anticipated % Down Payment:</b> ' + Math.round(($dpSlide.val() * 100) * 100) / 100 + '%');
-    $interestSlideVal.html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($interestSlide.val() * 100) * 100) / 100 + '%');
-    $utilitySlideVal.html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $utilitySlide.val());
+    $interestSlideVal.html('<b>Anticipated Interest Rate:</b> ' + Math.round(($interestSlide.val() * 100) * 100) / 100 + '%');
+    $utilitySlideVal.html('<b>Anticipated Monthly Utility Cost:</b> $' + $utilitySlide.val());
     $incomeSlide.on('input', function() {
       $incSlideVal.html('<b>Annual Income:</b> $' + $(this).val());
     });
@@ -111,11 +111,11 @@
     });
 
     $interestSlide.on('input', function() {
-      $interestSlideVal.html('<b>Insurance Rate:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
+      $interestSlideVal.html('<b>Anticipated Interest Rate:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $utilitySlide.on('input', function() {
-      $utilitySlideVal.html('<b>Monthly Utilities costs:</b> $ ' + $(this).val());
+      $utilitySlideVal.html('<b>Anticipated Monthly Utilities costs:</b> $ ' + $(this).val());
     });
     national.nationalMedian(national.buildCountyHomes);
   });
