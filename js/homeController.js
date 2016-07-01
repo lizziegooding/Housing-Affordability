@@ -23,18 +23,62 @@
     if (charting.myChart) {
       charting.myChart.destroy();
     }
+    if ($('#natAvgBtn').hasClass('btn btn-danger')){
+      $('#natAvgBtn').removeClass('btn btn-danger');
+      $('#natAvgBtn').addClass('btn btn-default');
+
+    }
+    if ($('#minWageBtn').hasClass('btn btn-danger')){
+      $('#minWageBtn').removeClass('btn btn-danger');
+      $('#minWageBtn').addClass('btn btn-default');
+
+    }
+
   });
 
   $('#natAvgBtn').on('click', function(e) {
     e.preventDefault();
     colorObj.setPaint(mathObj.iSalary, 'index');
     $('#salaryInput').val(mathObj.iSalary);
+    if ($('#natAvgBtn:focus')) {
+      $('#natAvgBtn').removeClass('btn btn-default');
+      $('#natAvgBtn').addClass('btn btn-danger');
+
+      $('#minWageBtn').removeClass('btn btn-danger');
+      $('#minWageBtn').addClass('btn btn-default');
+
+    }
+    else {
+      $('#natAvgBtn').removeClass('btn btn-danger');
+      $('#natAvgBtn').addClass('btn btn-default');
+
+      $('#minWageBtn').removeClass('btn btn-default');
+      $('#minWageBtn').addClass('btn btn-danger');
+    }
   });
+
+//   "btn btn-danger” = orange
+//
+// "btn btn-default” = white
 
   $('#minWageBtn').on('click', function(e) {
     e.preventDefault();
     colorObj.setPaint(mathObj.minSalary, 'index');
     $('#salaryInput').val(mathObj.minSalary);
+    if ($('#minWageBtn:focus')){
+      $('#minWageBtn').removeClass('btn btn-default');
+      $('#minWageBtn').addClass('btn btn-danger');
+
+      $('#natAvgBtn').removeClass('btn btn-danger');
+      $('#natAvgBtn').addClass('btn btn-default');
+    }
+    else {
+      $('#minWageBtn').removeClass('btn btn-danger');
+      $('#minWageBtn').addClass('btn btn-default');
+
+      $('#natAvgBtn').removeClass('btn btn-default');
+      $('#natAvgBtn').addClass('btn btn-danger');
+    }
   });
 
   module.homeController = homeController;
