@@ -18,7 +18,7 @@
     } else {
       setPaint(salaryInput, 'index');
       salaryStorage(salaryInput, salaryCurrency);
-      salaryChart[2] = JSON.parse(localStorage.salaryCurrency)[0];
+      charting.salaryChart[2] = JSON.parse(localStorage.salaryCurrency)[0];
     }
     if (myChart) {
       myChart.destroy();

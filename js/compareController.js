@@ -7,7 +7,7 @@
     $('.tab-content').hide();
     $('iframe').show();
     $('#compareContent').show();
-    draw(salaryChart);
+    charting.draw(charting.salaryChart);
   };
 
   module.compareController = compareController;
