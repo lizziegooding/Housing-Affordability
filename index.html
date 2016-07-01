@@ -137,8 +137,49 @@
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="homeContent">
         <h3>Where Can You Afford to Buy a Home?</h3>
-        <p>If you want to buy a house at the median price and earn</p>
+        <p>Our housing affordability tool pulls data from the U.S. Census and Zillow to illustrate the most affordable areas of our country.</p>
+        <p>Input your annual salary to see where you can afford to buy a single family home based on  median value.*</p>
+        <br />
         <div class="row">
+          <form>
+            <div class="col-sm-8">
+              <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
+            </div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <br />
+        <p>Alternatively, view affordability based on average national income or earnings based on the federal minimum wage.</p>
+        <div class="row">
+          <div class="col-md-5 col-md-offset-1">
+            <button id="natAvgBtn" class="btn btn-primary" type="submit" name="natAvgBtn">national average</button>
+          </div>
+          <div class="col-md-5">
+            <button id="minWageBtn" class="btn btn-default" type="submit" name="minWageBtn">minimum wage</button>
+          </div>
+        </div>
+        <br />
+
+        <h4>Percent of income spent on Housing</h4>
+        <div class='my-legend'>
+          <div class='legend-scale'>
+            <ul class='legend-labels'>
+              <li><span style='background:#225378;'></span>15% or less</li>
+              <li><span style='background:#66c2a5;'></span>16-20%</li>
+              <li><span style='background:#abdda4;'></span>21-25%</li>
+              <li><span style='background:#e6f598;'></span>26-30%</li>
+              <li><span style='background:#fee08b;'></span>31-35%</li>
+              <li><span style='background:#fdae61;'></span>36-40%</li>
+              <li><span style='background:#f46d43;'></span>41-45%</li>
+              <li><span style='background:#d53e4f;'></span>more than 45%</li>
+            </ul>
+          </div>
+          <div class='legend-source'>Source: <a href="http://www.census.gov/">U.S. Census</a>, <a href="http://www.zillow.com/">Zillow</a></div>
+        </div>
+      </section>
+
 
 
           <div class="form-group row">
@@ -147,28 +188,6 @@
             </label>
           </div>
           <div class="form-group row">
-            Or try:
-            <button id="natAvgBtn" class="btn btn-primary" type="submit" name="natAvgBtn">national average</button>
-            <button id="minWageBtn" class="btn btn-default" type="submit" name="minWageBtn">minimum wage</button>
-          </div>
-        </form>
-        <div class='my-legend'>
-          <div class='legend-title'>Percent of income spent on Housing</div>
-            <div class='legend-scale'>
-              <ul class='legend-labels'>
-                <li><span style='background:#225378;'></span>15% or less</li>
-                <li><span style='background:#66c2a5;'></span>16-20%</li>
-                <li><span style='background:#abdda4;'></span>21-25%</li>
-                <li><span style='background:#e6f598;'></span>26-30%</li>
-                <li><span style='background:#fee08b;'></span>31-35%</li>
-                <li><span style='background:#fdae61;'></span>36-40%</li>
-                <li><span style='background:#f46d43;'></span>41-45%</li>
-                <li><span style='background:#d53e4f;'></span>more than 45%</li>
-              </ul>
-            </div>
-          <div class='legend-source'>Source: <a href="http://www.census.gov/">U.S. Census</a>, <a href="http://www.zillow.com/">Zillow</a></div>
-        </div>
-      </section>
 
       <!-- Compare Tab Content
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
