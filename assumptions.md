@@ -1,7 +1,7 @@
 ## Assumptions:
 
 + **Structure Type & Cost:**
-Single Family Homes and Owned Condominiums, Townhouses, and Mobile Homes. Home values from the US Census American Community Survey 5-year estimates, 2014, Table B25077 and Zillow Home Value Index, May 2016.
+Single Family Homes and Owned Condominiums, Townhouses, and Mobile Homes. Home values from the US Census American Community Survey 5-year estimates, 2014, Table B25077 and Zillow Home Value Index, May 2016. Note that null values from Zillow reflect the limited nature of Zillow's data coverage and are not errors.
 + **Income:**
 $53,482, the national median household income according to American Community Survey 5-year estimates, 2014, Table B19013. $15,080, the annual minimum wage estimate, assumes a single wage-earner household making $7.25, the federal minimum wage, and working full time.
 + **Affordability:**
