@@ -16,7 +16,7 @@
   };
 
   repos.stickOnPage = function() {
-    $('#thisRepo ul').append(
+    $('#aboutContent ul').append(
       repos.with('watchers_count').map(repoRender)
     );
   };
