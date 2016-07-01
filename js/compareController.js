@@ -1,6 +1,7 @@
 (function(module) {
   var compareController = {};
 
+// show compare tab elements and draw chart
   compareController.index = function() {
     console.log('compare');
     $('#funkDiv').hide();

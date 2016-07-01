@@ -1,6 +1,7 @@
 (function(module) {
   var affordController = {};
 
+  // show all afford tab elements
   affordController.index = function() {
     $('#funkDiv').hide();
     $('.tab-content').hide();

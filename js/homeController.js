@@ -1,13 +1,14 @@
 (function(module) {
   var homeController = {};
 
+  // show all home elements
   homeController.index = function() {
     $('#funkDiv').hide();
     $('.tab-content').hide();
     $('iframe').show();
     $('#homeContent').show();
   };
-
+// get salary input from user, store in localstorage if checkbox is true, validate input
   $('#salarySubmit').on('click', function(e) {
     e.preventDefault();
     var salaryInput = $('#salaryInput').val();
