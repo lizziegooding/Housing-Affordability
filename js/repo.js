@@ -5,10 +5,10 @@
 
   var repoRender = Handlebars.compile($('#git-template').text());
 
-  repos.requestRepos = function(callback) {
+  repos.requestRepos = function(/*callback*/) {
     $.get('/github/user/repos' + '?per_page=100' + '&sort=updated')
-    .done(function(data, message, xhr) { console.log(data); repos.all = data; })
-    .done(callback);
+    .done(function(data, message, xhr) { console.log(data); repos.all = data; });
+    // .done(callback);
   };
 
   repos.with = function(attr) {
