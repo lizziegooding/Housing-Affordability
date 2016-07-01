@@ -95,17 +95,14 @@
     if ($salaryInput.val() > 0) {
       $incomeSlide.val($salaryInput.val());
     }
-
     $incSlideVal.html('<b>Annual Income:</b> $' + $incomeSlide.val());
     $percentSlideVal.html('<b>% Income towards Mortgage:</b> ' + Math.round(($percentSlide.val() * 100) * 100) / 100 + '%');
     $dpSlideVal.html('<b>Anticipated % Down Payment:</b> ' + Math.round(($dpSlide.val() * 100) * 100) / 100 + '%');
     $interestSlideVal.html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($interestSlide.val() * 100) * 100) / 100 + '%');
     $utilitySlideVal.html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $utilitySlide.val());
-
     $incomeSlide.on('input', function() {
       $incSlideVal.html('<b>Annual Income:</b> $' + $(this).val());
     });
-
     $percentSlide.on('input', function() {
       $percentSlideVal.html('<b>% Income towards Mortgage:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });

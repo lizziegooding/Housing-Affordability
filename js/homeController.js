@@ -17,7 +17,7 @@
     if (isNaN(salaryInteger)) {
       // TODO: Create user dialogue to note invalid input. (Won't be necessary if we write an if statment to check for and remove and non-integers like 'e'.)
     } else {
-      setPaint(salaryInput, 'index');
+      colorObj.setPaint(salaryInput, 'index');
       localStorageController.salaryStorage(salaryInput, salaryCurrency);
       charting.salaryChart[2] = JSON.parse(localStorage.salaryCurrency)[0];
     }
