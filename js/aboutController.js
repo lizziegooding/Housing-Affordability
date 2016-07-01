@@ -7,7 +7,7 @@
     $('#funkDiv').hide();
     $('iframe').hide();
     $('.tab-content').hide();
-    $('#aboutContent').empty();
+    $('#aboutTeam').empty();
     $('#aboutContent').fadeIn(850);
   };
 

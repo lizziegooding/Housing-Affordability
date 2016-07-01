@@ -1,26 +1,26 @@
 [{
 	"name": "Michelle Srikhundonr",
-	"giturl": "https://github.com/",
-	"porturl": "https://aaron-portfolio.herokuapp.com/",
+	"giturl": "https://github.com",
+	"porturl": "porturlhere",
 	"description": "Something interesting here."
 }, {
 	"name": "Michelle Erickson",
-	"giturl": "https://github.com/",
-	"porturl": "https://aaron-portfolio.herokuapp.com/",
+	"giturl": "https://github.com",
+	"porturl": "porturlhere",
 	"description": "Something interesting here."
 }, {
 	"name": "Lizzie Gooding",
 	"giturl": "https://github.com/",
-	"porturl": "https://aaron-portfolio.herokuapp.com/",
+	"porturl": "porturlhere",
 	"description": "Something interesting here."
 }, {
 	"name": "Michael Freeman",
 	"giturl": "https://github.com/",
-	"porturl": "https://aaron-portfolio.herokuapp.com/",
+	"porturl": "porturlhere",
 	"description": "Something interesting here."
 }, {
 	"name": "Aaron Bini",
 	"giturl": "https://github.com/aaronbini",
-	"porturl": "https://aaron-portfolio.herokuapp.com/",
+	"porturl": "porturlhere",
 	"description": "Something interesting here."
 }]

@@ -33,7 +33,7 @@
   <!-- Handlebars Template
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script id="about-template" type="text/template">
-    <div class="col-sm-5 about-div">
+    <div class="col-sm-4 about-div">
       <h2>{{name}}</h2>
       <a href="{{giturl}}"><p>Check Out my GitHub Page</p></a>
       <a href="{{porturl}}"><p>Check Out my Portfolio Page</p></a>
@@ -210,8 +210,6 @@
 
         <button id='button'>Select State</button>
 
-        <button id='viewChart' class='hide-initial'>View Chart</button>
-
         <canvas id="canvas" width="" height=""></canvas>
 
 
@@ -228,7 +226,7 @@
           <div class="panel-heading">TOTAL COST OF OWNERSHIP</div>
             <div class="panel-body">
               <p id='incSlideVal'></p>
-              <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
+              <input type="range" id="incomeSlide" min=0 value=53482 max=200000 step=3000>
               <br />
               <p id='dpSlideVal'></p>
               <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
@@ -251,12 +249,15 @@
             </div>
         </div>
       </section>
+    </div>
+  </div>
+</div>
+
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div class="container">
-  <div id="aboutContent" class="row hide-initial tab-content">
-  </div>
+<div id="aboutContent" class="container">
+  <div id="aboutTeam" class="container row hide-initial tab-content"></div>
 </div>
 
 <div id="funkDiv">
