@@ -9,7 +9,7 @@ function setRouteMappings() {
   page('about', aboutController.index);
   page('funk', funkController.index);
 
-  page('index.html', '/');
+  page('*', '/');
 
   page();
 }
