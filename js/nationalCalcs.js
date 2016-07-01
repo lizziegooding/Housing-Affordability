@@ -40,6 +40,8 @@
   var $utilitySlideVal = $('#utilitySlideVal');
   var $utilitySlide = $('#utilitySlide');
   var $percentHomes = $('#percentHomes');
+  var $salarySubmit = $('#salarySubmit');
+  var $salaryInput = $('#salaryInput');
 
   //pulls all income, median_home_value, and median_gross_rent data from the Census API for every county in the US
   national.nationalMedian = function(filterFunc) {
@@ -69,7 +71,7 @@
   };
 
 // calculate affordability based on data from census api
-  national.whereCanIBuy = function (array, annualIncome, utilities, downPayment, interestRate, percentIncome) {
+  national.whereCanIBuy = function (array, annualIncome, utilities, downPayment, interestRate) {
     var monthlyIncome = annualIncome / 12;
     var requiredMonthly = array.map(function(countyMedian){
       var payment = {};
@@ -84,39 +86,36 @@
     });
 
     var accessibleCounties = requiredMonthly.filter(function(element){
-      return element.mPayment < ((Math.round((annualIncome / 12) * 100) / 100) * percentIncome);
+      return element.mPayment < ((Math.round((annualIncome / 12) * 100) / 100) * 0.3);
     });
-    // Math.round(num * 100) / 100
     return '<p>Based on Census Median Home Values, you could afford a home in ' + Math.round(((accessibleCounties.length) / (national.countyHomes.length) * 100) * 100) / 100 + '% of counties in the USA</p>';
   };
 
 // get user input from affordability sliders
   $(function(){
-    if ($salaryInput.val() > 0) {
-      $incomeSlide.val($salaryInput.val());
-    }
+    $salarySubmit.on('click', function(){
+      $incomeSlide.val(parseInt($salaryInput.val()));
+      $incSlideVal.html('<b>Annual Income:</b> $' + parseInt($salaryInput.val()));
+    });
+
     $incSlideVal.html('<b>Annual Income:</b> $' + $incomeSlide.val());
-    $percentSlideVal.html('<b>% Income towards Mortgage:</b> ' + Math.round(($percentSlide.val() * 100) * 100) / 100 + '%');
     $dpSlideVal.html('<b>Anticipated % Down Payment:</b> ' + Math.round(($dpSlide.val() * 100) * 100) / 100 + '%');
     $interestSlideVal.html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($interestSlide.val() * 100) * 100) / 100 + '%');
     $utilitySlideVal.html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $utilitySlide.val());
     $incomeSlide.on('input', function() {
       $incSlideVal.html('<b>Annual Income:</b> $' + $(this).val());
     });
-    $percentSlide.on('input', function() {
-      $percentSlideVal.html('<b>% Income towards Mortgage:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
-    });
 
     $dpSlide.on('input', function() {
-      $dpSlideVal.html('<b>Anticipated % Down Payment:</b> $' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
+      $dpSlideVal.html('<b>Anticipated % Down Payment:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $interestSlide.on('input', function() {
-      $interestSlideVal.html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
+      $interestSlideVal.html('<b>Insurance Rate:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $utilitySlide.on('input', function() {
-      $utilitySlideVal.html('<b>Anticipated Monthly Utilities costs:</b> $ ' + $(this).val());
+      $utilitySlideVal.html('<b>Monthly Utilities costs:</b> $ ' + $(this).val());
     });
     national.nationalMedian(national.buildCountyHomes);
   });
