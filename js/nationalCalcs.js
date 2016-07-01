@@ -127,6 +127,7 @@
     var updateCalc = mathObj.calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $utilitySlide.val(), $dpSlide.val(), $interestSlide.val());
     document.getElementById('mapHTML').contentWindow.map.getSource('affordCountyMHV').setData(updateCalc);
     colorObj.setPaint($incomeSlide.val(), mathObj.colorArray);
+    $salaryInput.val($incomeSlide.val());
   });
 
   module.national = national;
