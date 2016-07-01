@@ -23,7 +23,7 @@
     }
   };
 
-  // when user agrees to persist salary info, then store in local storage
+  // when user agrees to persist salary info (default), then store in local storage
   localStorageController.salaryStorage = function(input, currency) {
     var $salaryCheckbox = $('#salaryCheckbox');
     if ($salaryCheckbox.prop('checked')) {

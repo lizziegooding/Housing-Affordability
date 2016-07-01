@@ -88,7 +88,7 @@
     var accessibleCounties = requiredMonthly.filter(function(element){
       return element.mPayment < ((Math.round((annualIncome / 12) * 100) / 100) * 0.3);
     });
-    return '<p>Based on Census Median Home Values, you could afford a home in ' + Math.round(((accessibleCounties.length) / (national.countyHomes.length) * 100) * 100) / 100 + '% of counties in the USA</p>';
+    return '<p>Based on Census median home values, you can afford a home in ' + Math.round(((accessibleCounties.length) / (national.countyHomes.length) * 100) * 100) / 100 + '% of counties across the United States.</p>';
   };
 
 // get user input from affordability sliders

@@ -39,8 +39,11 @@
 // appends all data that was returned to the dom element
   About.appendAll = function () {
     About.all.forEach(function(element){
-      $('#aboutContent').append(element.toHTML());
+      $('#projectTeam').append(element.toHTML());
     });
   };
+
+  About.fetchAll(About.appendAll);
+
   module.About = About;
 })(window);

@@ -42,31 +42,32 @@ ul.legend-labels li span {
 }
 
 .afford-div {
-  /*height: 15%;*/
   background-color: #ff9966;
   margin: 2%;
   text-align: center;
-  /*font-size: 0.75em;*/
   border-radius: 10px;
 }
 
-/* About div - needs revisiting
+/* Full Text Content Displays
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.hide-initial {
-  display: none;
+#assumptionsContent,
+#aboutContent,
+#funkDiv {
+  z-index: 50;
 }
 
-#aboutContent h3 {
-  margin-top: 75px;
-}
-
+/* About Link Content
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .about-div {
   margin: 2%;
   margin-top: 100px;
-  margin-bottom: 1%;
   padding: 10px;
   text-align: left;
   border-radius: 10px;
   background-color: #00cccc;
   z-index: 11;
+}
+
+#about {
+  text-align: center;
 }
