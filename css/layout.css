@@ -4,16 +4,21 @@
 .tab-content {
   height: 100%;
   z-index: 2;
+  padding-top: 70px;
+  padding-right: 2rem;
+  padding-left: 2rem;
   /*position: absolute;*/
-  padding-top: 80px;
-  /*padding-bottom: 10px;*/
+}
+
+.caveat {
+  font-size: 75%;
 }
 
 footer {
   position: fixed;
-  left: 1;
-  bottom: 1;
-  z-index: 1;
+  left: 5;
+  bottom: 5;
+  z-index: 99;
 }
 
 /*---funk page--*/

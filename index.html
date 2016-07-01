@@ -16,12 +16,10 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap-theme.min.css.map">
   <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor/customBootstrap-3.3.6-dist/css/bootstrap.min.css.map">
   <link rel="stylesheet" type="text/css" href="css/theme.css">
   <link rel="stylesheet" type="text/css" href="css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/NEW-layout.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
   <link rel="stylesheet" type="text/css" href="css/module.css">
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -42,18 +40,6 @@
       <p>{{description}}</p>
     </div>
   </script>
-
-  <script id='git-template' type='text/template'>
-   <li>
-     <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-     <p>Description: {{description}}</p>
-     {{#if stargazers_count}}
-      <p>{{stargazers_count}} people have starred this repo</p>
-     {{#if watchers_count}}
-       <p>{{watchers_count}} watching this repo</p>
-     {{/if}}
-   </li>
- </script>
 
   <script id='funk-template' type='text/template'>
   <p><br><br><br></p>
@@ -85,7 +71,6 @@
     </div>
   </div>
 </nav>
-
 
  <!-- Modal
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -124,15 +109,9 @@
        <h1>How you compare chart modal</h1>
      </div>
      <div class="modal-body">
-       <h3>Welcome!</h3>
        <div id="canvasHolder"></div>
-      <!-- <canvas id="chart" width="" height=""></canvas> -->
-       <p>This is where our instructions will go.</p>
        <div id="form">
          <div class="checkbox form-group">
-           <label>
-             <input type="checkbox" id="checkbox">Do not show this message again.
-           </label>
          </div>
          <div class="form-group">
            <button class="btn btn-primary" data-dismiss="modal" value="submit" id="agreeButton">OK</button>
@@ -157,38 +136,66 @@
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="homeContent">
         <h3>Where Can You Afford to Buy a Home?</h3>
-        <p>If you want to buy a house at the median price and earn</p>
-        <form>
-          <div class="form-group row">
-            <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
-            <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
-          </div>
-          <div class="form-group row">
-            <label>
-              <input type="checkbox" id="salaryCheckbox">Check here to input your salary for use with our different affordability calculators. We will not store your data. Your information will be available for use during this session only.
-            </label>
-          </div>
-          <div class="form-group row">
-            Or try:
-            <button id="natAvgBtn" type="submit" name="natAvgBtn">national average</button>
-            <button id="minWageBtn" type="submit" name="minWageBtn">minimum wage</button>
-          </div>
-        </form>
-        <div class='my-legend'>
-          <div class='legend-title'>Percent of income spent on Housing</div>
-            <div class='legend-scale'>
-              <ul class='legend-labels'>
-                <li><span style='background:#225378;'></span>15% or less</li>
-                <li><span style='background:#66c2a5;'></span>16-20%</li>
-                <li><span style='background:#abdda4;'></span>21-25%</li>
-                <li><span style='background:#e6f598;'></span>26-30%</li>
-                <li><span style='background:#fee08b;'></span>31-35%</li>
-                <li><span style='background:#fdae61;'></span>36-40%</li>
-                <li><span style='background:#f46d43;'></span>41-45%</li>
-                <li><span style='background:#d53e4f;'></span>more than 45%</li>
-              </ul>
+        <p>Our housing affordability tool pulls data from the U.S. Census and Zillow to illustrate the most affordable areas of our country.</p>
+        <p>Input your annual salary to see where you can afford to buy a single family home based on  median value.*</p>
+        <br />
+        <div class="row">
+          <form>
+            <div class="col-sm-8">
+              <input type="number" class="form-control" id="salaryInput" placeholder="$54,000">
             </div>
-          <div class='legend-source'>Source: <a href="http://www.census.gov/">U.S. Census</a>, <a href="http://www.zillow.com/">Zillow</a></div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary" id="salarySubmit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <br />
+        <p>Alternatively, view affordability based on average national income or earnings based on the federal minimum wage.</p>
+        <div class="row">
+          <div class="col-md-5 col-md-offset-1">
+            <button id="natAvgBtn" class="btn btn-primary" type="submit" name="natAvgBtn">national average</button>
+          </div>
+          <div class="col-md-5">
+            <button id="minWageBtn" class="btn btn-default" type="submit" name="minWageBtn">minimum wage</button>
+          </div>
+        </div>
+        <br />
+        <!-- Legend -->
+        <h4>Percent of Income Spent on Housing</h4>
+        <div class='legend-scale'>
+          <ul class='legend-labels'>
+            <li><span style='background:#225378;'></span>15% or less</li>
+            <li><span style='background:#66c2a5;'></span>16-20%</li>
+            <div class="row">
+              <div class="col-md-5">
+                <li><span style='background:#abdda4;'></span>21-25%</li>
+              </div>
+              <div class="col-md-7">
+                More Affordable
+              </div>
+            </div>
+            <li><span style='background:#e6f598;'></span>26-30%</li>
+            --------------------
+            <li><span style='background:#fee08b;'></span>31-35%</li>
+            <div class="row">
+              <div class="col-md-5">
+                <li><span style='background:#fdae61;'></span>36-40%</li>
+              </div>
+              <div class="col-md-7">
+                Less Affordable
+              </div>
+            </div>
+            <li><span style='background:#f46d43;'></span>41-45%</li>
+            <li><span style='background:#d53e4f;'></span>more than 45%</li>
+          </ul>
+        </div>
+        <div class='legend-source'>Source: <a href="http://www.census.gov/">U.S. Census</a>, <a href="http://www.zillow.com/">Zillow</a></div>
+        <!-- End Legend -->
+
+        <div class="checkbox form-group caveat">
+          <label>
+            <input type="checkbox" id="salaryCheckbox" checked>By checking this box, the salary entered will be used by our different affordability calculators to provide you with additional comparative data. Uncheck this box to opt out of this feature.
+          </label>
         </div>
       </section>
 
@@ -216,17 +223,17 @@
       <section class="tab-content" id="affordContent">
         <h3>Where Can I Afford To Live?</h3>
 
-          <div class="col-md-11 afford-div">
+          <!-- <div class="col-md-11 afford-div"> -->
             <p id='incSlideVal'></p>
             <input type="range" id="incomeSlide" min=0 value=54000 max=200000 step=3000>
-          </div>
+          <!-- </div> -->
           <div class="col-md-11 afford-div">
             <p id='percentSlideVal'></p>
             <input type="range" id="percentSlide" min=0.05 value=0.30 max=0.60 step=0.01>
           </div>
           <div class="col-md-11 afford-div">
             <p id='dpSlideVal'></p>
-            <input type="range" id="dpSlide" min=0.05 value=0.10 max=1.0 step=0.05>
+            <input type="range" id="dpSlide" min=10000 value=10000 max=100000 step=2000>
           </div>
           <div class="col-md-11 afford-div">
             <p id='interestSlideVal'>_</p><p > </p>
@@ -244,15 +251,10 @@
 
 <!-- About Page Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div id="aboutContent" class=" hide-initial tab-content">
-    <a><h3 id="githubProxy" href="/github/">View Stats on our Repo!</h3></a>
-    <div id="thisRepo">
-      <ul>
-      </ul>
-    </div>
-    <div id="aboutTeam"></div>
+<div class="container">
+  <div id="aboutContent" class="row hide-initial tab-content">
   </div>
+</div>
 
 <div id="funkDiv">
   <div id="funkContent"></div>
@@ -296,7 +298,7 @@
   <script type="text/javascript" src="js/charting.js"></script>
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>
-  <script type="text/javascript" src="js/repo.js"></script>
+
   <script type="text/javascript" src="js/plusFunk.js"></script>
   <script type="text/javascript" src="js/funkController.js"></script>
   <script type="text/javascript" src="js/routes.js"></script>
