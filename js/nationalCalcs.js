@@ -125,9 +125,9 @@
     national.buildCountyHomes();
     $percentHomes.empty();
     $percentHomes.append(national.whereCanIBuy(national.countyHomes, $incomeSlide.val(), $utilitySlide.val(), $dpSlide.val(), $interestSlide.val(), $percentSlide.val()));
-    var updateCalc = calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $utilitySlide.val(), $dpSlide.val(), $interestSlide.val());
+    var updateCalc = mapObj.calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $utilitySlide.val(), $dpSlide.val(), $interestSlide.val());
     document.getElementById('mapHTML').contentWindow.map.getSource('affordCountyMHV').setData(updateCalc);
-    setPaint($incomeSlide.val(), colorArray);
+    colorObj.setPaint($incomeSlide.val(), mathObj.colorArray);
   });
 
   module.national = national;
