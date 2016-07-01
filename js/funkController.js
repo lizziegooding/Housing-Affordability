@@ -1,7 +1,7 @@
 (function(module) {
   var funkController = {};
 
-  // show all about tab elements and populate page with fetchall
+  // show all funk tab elements and populate page with fetchall
   funkController.index = function() {
     Funk.fetchAll(Funk.appendAll);
     $('iframe').hide();

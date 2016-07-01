@@ -41,24 +41,14 @@
     </ul>
   </script>
 
-<!-- original about template -->
-  <!-- <script id="about-template" type="text/template">
-    <div class="col-sm-5 about-div">
-      <h2>{{name}}</h2>
-      <a href="{{giturl}}"><p>Check Out my GitHub Page</p></a>
-      <a href="{{porturl}}"><p>Check Out my Portfolio Page</p></a>
-      <p>{{description}}</p>
-    </div>
-  </script> -->
-
   <script id='funk-template' type='text/template'>
-  <p><br><br><br></p>
-  <h5>Did you know that in...</h5>
-  <h3>{{location}}</h3>
-    <ul>
-      <li>{{info}}</li>
-    </ul>
-</script>
+    <p><br><br><br></p>
+    <h5>Did you know that in...</h5>
+    <h3>{{location}}</h3>
+      <ul>
+        <li>{{info}}</li>
+      </ul>
+  </script>
 
   <!-- Navigation Bar
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -267,35 +257,75 @@
   </div>
 </div>
 
-
-<!-- About Page Content
+<!-- Assumptions Link Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <div class="container">
-  <section class="tab-content" id="aboutContent">
+  <section class="tab-content" id="assumptionsContent">
+    <div class="col-md-8">
+      <h3>Assumptions</h3>
+      <p><strong>Structure Type &amp; Cost:</strong></p>
+      <p>Single Family Homes and Owned Condominiums, Townhouses, and Mobile Homes. Home values from the US Census American Community Survey 5-year estimates, 2014, Table B25077 and Zillow Home Value Index, May 2016. Note that null values from Zillow reflect the limited nature of Zillow's data coverage and are not errors.</p>
+      <p><strong>Income:</strong></p>
+      <p>$53,482, the national median household income according to American Community Survey 5-year estimates, 2014, Table B19013. $15,080, the annual minimum wage estimate, assumes a single wage-earner household making $7.25, the federal minimum wage, and working full time.</p>
+      <p><strong>Affordability:</strong></p>
+      <ul>
+        <li>Affordable: Housing costs are 30% or less of gross household income</li>
+        <li>Down Payment: 20% of the home value</li>
+        <li>Mortgage: 30-year amortizing principal interest</li>
+        <li>Interest Rate: 3.85%, the 2015 annual average according to Freddie Mac</li>
+        <li>Property Tax Rate: 1.29%, the average effective property tax rate for single family homes in 2014 according to RealtyTrac</li>
+        <li>Insurance: Home value / 1,000 * 3.5</li>
+        <li>Utilities: $250 per month</li>
+      </ul>
+      <p><strong>Geography:</strong></p>
+      <p>All counties in the United States and the District of Columbia.</p>
+      <p><strong>Calculation:</strong></p>
+      <p>Percent of income spent on  = Monthly Housing Costs [Mortgage Payment + Monthly Utilities] + Property Tax + Home Insurance] / Annual Income</p>
+    </div>
   </section>
 </div>
 
-  <!-- <div id="aboutContent" class="row hide-initial tab-content">
-  </div>
-</div> -->
-
-<!-- Funk Page Content
+<!-- About Link Content
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div id="funkDiv">
-  <div id="funkContent"></div>
-  <div id="funkVideo">
-      <video autoplay loop poster="vid/clouds.jpg" id="video" muted="true">
-        <source src="vid/cloudsVid.mp4" type="video/mp4">
-        <source src="vid/clouds.ogv" type="video/ogg">
-      </video>
-  </div>
+<div class="container">
+  <section class="tab-content" id="aboutContent">
+    <div class="col-md-8">
+      <h3>The US Housing Affordabilty tool is a capstone project for <a href="http://codefellows.org" target="_blank">Code Fellows</a> Code 301 Boot Camp.</h3>
+      <p>The tool was inspired by The Guardian's <a href="http://www.theguardian.com/society/ng-interactive/2015/sep/02/unaffordable-country-where-can-you-afford-to-buy-a-house">Unaffordable Country</a> app (Sept 2015).</p>
+      <br />
+      <p>June 2016<br />Portland, OR</p>
+      <br />
+
+      <h3>Project Team:</h3>
+      <br />
+      <p id="projectTeam"></p>
+      <br />
+      <a href="/funk">MS's funk page</a>
+
+    </div>
+  </section>
+</div>
+
+<!-- Funk Link Content
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container">
+  <section class="tab-content" id="funkDiv">
+    <div class="col-md-8">
+      <div id="funkContent"></div>
+      <div id="funkVideo">
+          <video autoplay loop poster="vid/clouds.jpg" id="video" muted="true">
+            <source src="vid/cloudsVid.mp4" type="video/mp4">
+            <source src="vid/clouds.ogv" type="video/ogg">
+          </video>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <footer>
-    <a href="/about">&copy; 2016 Team Atlas</a>
-    <a href="/funk">funk</a>
+    <a href="/about">&copy; 2016 Team Atlas</a>   |  <a href="/assumptions">Assumptions</a>
 </footer>
 
 <!-- End Document
@@ -322,6 +352,7 @@
   <script type="text/javascript" src="js/homeController.js"></script>
   <script type="text/javascript" src="js/compareController.js"></script>
   <script type="text/javascript" src="js/affordController.js"></script>
+  <script type="text/javascript" src="js/assumptionsController.js"></script>
   <script type="text/javascript" src="js/charting.js"></script>
   <script type="text/javascript" src="js/about.js"></script>
   <script type="text/javascript" src="js/aboutController.js"></script>

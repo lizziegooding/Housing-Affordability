@@ -12,6 +12,7 @@ iframe {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .contentContainer {
   position: relative;
+  z-index: 9;
 }
 
 #overlay {
@@ -27,6 +28,6 @@ iframe {
   background-color: #fff;
   height: 100%;
   opacity: 0.95;
-  z-index: 99;
+  z-index: 11;
   position: relative;
 }

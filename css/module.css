@@ -48,16 +48,20 @@ ul.legend-labels li span {
   border-radius: 10px;
 }
 
-/* About div - needs revisiting
+/* Full Text Content Displays
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.hide-initial {
-  display: none;
+#assumptionsContent,
+#aboutContent,
+#funkDiv {
+  z-index: 50;
 }
 
+
+/* About Link Content
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .about-div {
   margin: 2%;
   margin-top: 100px;
-  /*margin-bottom: 1%;*/
   padding: 10px;
   text-align: left;
   border-radius: 10px;

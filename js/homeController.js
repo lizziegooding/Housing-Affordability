@@ -3,7 +3,6 @@
 
   // show all home elements
   homeController.index = function() {
-    $('#funkDiv').hide();
     $('.tab-content').hide();
     $('iframe').show();
     $('#homeContent').show();
