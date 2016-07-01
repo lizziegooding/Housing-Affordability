@@ -33,6 +33,14 @@ ul.legend-labels li span {
 
 /* Affordability Sliders
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.panel-heading {
+  text-align: center;
+}
+
+.panel-body {
+  padding: 2rem 3rem;
+}
+
 .afford-div {
   /*height: 15%;*/
   background-color: #ff9966;
