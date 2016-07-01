@@ -28,10 +28,13 @@
   $('#natAvgBtn').on('click', function(e) {
     e.preventDefault();
     colorObj.setPaint(mathObj.iSalary, 'index');
+    $('#salaryInput').val(mathObj.iSalary);
   });
+
   $('#minWageBtn').on('click', function(e) {
     e.preventDefault();
     colorObj.setPaint(mathObj.minSalary, 'index');
+    $('#salaryInput').val(mathObj.minSalary);
   });
 
   module.homeController = homeController;
