@@ -9,7 +9,6 @@
   mathObj.iInterest = 0.045;
   mathObj.colorArray = ['#225378', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'];
 
-
   /* This function runs when the page loads. It performs the following actions:
      1) takes the geoJSON objects and passes each of them through calcAffordability() to add properties to each objects
      2) adds updated geoJSON objects as a data source to the map on a per county basis
