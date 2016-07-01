@@ -26,5 +26,14 @@
     }
   });
 
+  $('#natAvgBtn').on('click', function(e) {
+    e.preventDefault();
+    colorObj.setPaint(mathObj.iSalary, 'index');
+  });
+  $('#minWageBtn').on('click', function(e) {
+    e.preventDefault();
+    colorObj.setPaint(mathObj.minSalary, 'index');
+  });
+
   module.homeController = homeController;
 })(window);
