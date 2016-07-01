@@ -1,28 +1,30 @@
-//create an array of colors to populate map paint object
-function colorMap(userInput, colors){
-  console.log('colorMap called');
-  var fillColor = {};
-  var percent = 0.10;
-// aPayment = annual payment - calculates 30% based on annual salary input
-  fillColor.property = 'aPayment';
-  fillColor.stops = colors.map(function(col){
-    percent += 0.05;
-    return [userInput * percent, col];
-  });
-  return fillColor;
-}
+(function(module) {
 
-function setPaint(userSalary, source){
-  if(source === 'map'){
-    map.setPaintProperty('affordCountyMHV', 'fill-color', colorMap(userSalary, colorArray));
-  }
-  else {
-    console.log('not first time calling set Paint');
-    document.getElementById('mapHTML').contentWindow.map.setPaintProperty('affordCountyMHV', 'fill-color', colorMap(userSalary, colorArray));
-  }
+  var colorObj = {};
 
-  // document.getElementById('mapHTML').contentWindow.map.setPaintProperty('myJSON', 'fill-color', colorMap(userSalary, colorArray));
-}
+  //This function determines the colors assigned to county geoJSON objects on the map in relation to the numerical value user's input
 
-//Change map based on user input
-//map.setPaintProperty('myJSON', 'fill-color', colorMap(60000, colorArray));
+  colorObj.colorMap = function(userInput, colors){
+    var fillColor = {};
+    var percent = 0.10;
+  // aPayment = annual payment - calculates 30% based on annual salary input
+    fillColor.property = 'aPayment';
+    fillColor.stops = colors.map(function(col){
+      percent += 0.05;
+      return [userInput * percent, col];
+    });
+    return fillColor;
+  };
+
+  //This function is called the page loads and colors the map based on static inital values. The salary data that the user inputs to the form on the home page or the sliders on the afford page will call the function again and alter the map's coloration.
+
+  colorObj.setPaint = function(userSalary, source){
+    if(source === 'map'){
+      map.setPaintProperty('affordCountyMHV', 'fill-color', colorObj.colorMap(userSalary, mathObj.colorArray));
+    }
+    else {
+      document.getElementById('mapHTML').contentWindow.map.setPaintProperty('affordCountyMHV', 'fill-color', colorObj.colorMap(userSalary, mathObj.colorArray));
+    }
+  };
+  module.colorObj = colorObj;
+}(window));

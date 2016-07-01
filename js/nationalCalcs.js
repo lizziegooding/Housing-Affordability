@@ -61,17 +61,17 @@
     var interestRate = value4;
     var requiredMonthly = array.map(function(countyMedian){
       var payment = {};
-      var mortgateTotal = Math.round((countyMedian - (countyMedian * downPayment))*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
-      payment.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
-      payment.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
-      payment.mUtilities = Math.round(utilities*100) / 100;
-      payment.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12)*100) / 100;
+      var mortgateTotal = Math.round((countyMedian - (countyMedian * downPayment)) * 100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
+      payment.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)), (-30 * 12))) * 100) / 100;
+      payment.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12) * 100) / 100;
+      payment.mUtilities = Math.round(utilities * 100) / 100;
+      payment.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12) * 100) / 100;
       payment.mPayment = payment.mMortgage + payment.mInsurance + payment.mUtilities + payment.mPropertyTax;
       payment.aPayment = payment.mPayment * 12;
       return payment;
     });
     var accessibleCounties = requiredMonthly.filter(function(element){
-      return element.mPayment < ((Math.round((value1 / 12)*100) / 100) * value5);
+      return element.mPayment < ((Math.round((value1 / 12) * 100) / 100) * value5);
     });
     // Math.round(num * 100) / 100
     return '<p>Based on Census Median Home Values, you could afford a home in ' + Math.round(((accessibleCounties.length) / (national.countyHomes.length) * 100) * 100) / 100 + '% of counties in the USA</p>';
@@ -83,9 +83,9 @@
     }
 
     $('#incSlideVal').html('<b>Annual Income:</b> $' + $('#incomeSlide').val());
-    $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($('#percentSlide').val()*100)*100) / 100 + '%');
-    $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> ' + Math.round(($('#dpSlide').val()*100)*100) / 100 + '%');
-    $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($('#interestSlide').val()*100)*100) / 100 + '%');
+    $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($('#percentSlide').val() * 100) * 100) / 100 + '%');
+    $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> ' + Math.round(($('#dpSlide').val() * 100) * 100) / 100 + '%');
+    $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($('#interestSlide').val() * 100) * 100) / 100 + '%');
     $('#utilitySlideVal').html('<b>Anticipated Monthly Utility Cost:</b> $ ' + $('#utilitySlide').val());
 
     $('#incomeSlide').on('input', function() {
@@ -93,15 +93,15 @@
     });
 
     $('#percentSlide').on('input', function() {
-      $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($(this).val()*100)*100) / 100 + '%');
+      $('#percentSlideVal').html('<b>% Income towards Mortgage:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $('#dpSlide').on('input', function() {
-      $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> $' + Math.round(($(this).val()*100)*100) / 100 + '%');
+      $('#dpSlideVal').html('<b>Anticipated % Down Payment:</b> $' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $('#interestSlide').on('input', function() {
-      $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($(this).val()*100)*100) / 100 + '%');
+      $('#interestSlideVal').html('<b>Anticipated Insurance Rate:</b> ' + Math.round(($(this).val() * 100) * 100) / 100 + '%');
     });
 
     $('#utilitySlide').on('input', function() {
@@ -113,10 +113,10 @@
     national.buildCountyHomes();
     $('#percentHomes').empty();
     $('#percentHomes').append(national.whereCanIBuy(national.countyHomes, $('#incomeSlide').val(), $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val(), $('#percentSlide').val()));
-    var updateCalc = calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val());
+    var updateCalc = mathObj.calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val());
     // document.getElementById('mapHTML').contentWindow.affordCountyMHV = calcAffordability(document.getElementById('mapHTML').contentWindow.countyMHV, $('#utilitySlide').val(), $('#dpSlide').val(), $('#interestSlide').val());
     document.getElementById('mapHTML').contentWindow.map.getSource('affordCountyMHV').setData(updateCalc);
-    setPaint($('#incomeSlide').val(), colorArray);
+    colorObj.setPaint($('#incomeSlide').val(), mathObj.colorArray);
   });
   //or countyMHV
   // map.addSource('affordCountyMHV', {

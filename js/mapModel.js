@@ -1,53 +1,41 @@
-//Color array for map display
-// var colorArray = ['#1a9850', '#66bd63', '#a6d96a', '#d9ef8b', '#fee08b', '#fdae61', '#f46d43', '#d73027'];
+(function(module) {
 
-//Set initial affordability assumptions
-var iSalary = 54000;
-var iUtilities = 250;
-var iDownPayment = 0.2;
-var iInterest = 0.045;
-var colorArray = ['#225378', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'];
-//Fetch locally stored Median Home Value data
-function fetchMHV(data, callback, secondCallback, source, initialSalary, value1, value2, value3){
-  console.log(data);
-  // $.getJSON('data/County_MHV_WGS84.geojson')
-  // .done(function(data){
-  //   console.log('Success!');
-  //   testGeojson = data;
-  //   console.log(testGeojson);
-  //   console.log('3. calling calcAffordability');
-  affordCountyMHV = calcAffordability(data, value1, value2, value3);
-  console.log(affordCountyMHV);
-  console.log('affordCountyMHV defined');
-  //Init map page
-  callback(secondCallback, initialSalary, source);
-  // })
-  // .fail(function() { console.log('Problem with data!'); })
-  // .always(function() { console.log('Try to get JSON data from server.');
-  // });
-}
+  var mathObj = {};
 
-//Calculate annual and montly housing costs based on 20% down (no PMI)
-function calcAffordability(rawData, utilities, downPayment, interestRate){
-  console.log('4. inside calcAffordability');
-  // var interestRate = 0.045;
-  // var mPMI = homeValue - (mMortgage * 12) * 0.01;
-  rawData.features.forEach(function(ele){
-    var e = ele.properties;
-    var homeValue = parseFloat(e.Median_Hom);
-    // e.mMortgage = ((interestRate / 12) * (homeValue - (homeValue * downPayment)) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12))));
-    // e.mInsurance = (homeValue / 1000 * 3.5 / 12);
-    // e.mUtilities = utilities;
-    // e.mPropertyTax = homeValue * 0.0129 / 12;
-    // e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
-    // e.aPayment = e.mPayment * 12;
-    var mortgateTotal = Math.round((homeValue - (homeValue * downPayment))*100) / 100;     /* (i x A) / (1 - (1 + i)^-N) */
-    e.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12)))*100) / 100;
-    e.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12)*100) / 100;
-    e.mUtilities = Math.round(utilities*100) / 100;
-    e.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12)*100) / 100;
-    e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
-    e.aPayment = e.mPayment * 12;
-  });
-  return rawData;
-}
+  //Set initial affordability assumptions
+  mathObj.iSalary = 54000;
+  mathObj.iUtilities = 250;
+  mathObj.iDownPayment = 0.2;
+  mathObj.iInterest = 0.045;
+  mathObj.colorArray = ['#225378', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'];
+
+
+  /* This function runs when the page loads. It performs the following actions:
+     1) takes the geoJSON objects and passes each of them through calcAffordability() to add properties to each objects
+     2) adds updated geoJSON objects as a data source to the map on a per county basis
+     3) runs setPaint() - aka secondCallback() - at the end of initMap() - aka callback() - to color the map by cross referencing the geoJSON data with the initial hard-coded salary data - aka iSalary
+  */
+  mathObj.fetchMHV = function(data, callback, secondCallback, source, initialSalary, value1, value2, value3){
+    affordCountyMHV = mathObj.calcAffordability(data, value1, value2, value3);
+    //Init map page
+    callback(secondCallback, initialSalary, source);
+  };
+
+  //Adds properties to geoJSON objects for calculation to color map
+  //Calculate annual and montly housing costs based on 20% down (no PMI)
+  mathObj.calcAffordability = function(rawData, utilities, downPayment, interestRate){
+    rawData.features.forEach(function(ele){
+      var e = ele.properties;
+      var homeValue = parseFloat(e.Median_Hom);
+      var mortgateTotal = Math.round((homeValue - (homeValue * downPayment)) * 100) / 100;
+      e.mMortgage = Math.round(((interestRate / 12) * mortgateTotal) / (1 - Math.pow((1 + (interestRate / 12)),(-30 * 12))) * 100) / 100;
+      e.mInsurance = Math.round((mortgateTotal / 1000 * 3.5 / 12) * 100) / 100;
+      e.mUtilities = Math.round(utilities * 100) / 100;
+      e.mPropertyTax = Math.round((mortgateTotal * 0.0129 / 12) * 100) / 100;
+      e.mPayment = e.mMortgage + e.mInsurance + e.mUtilities + e.mPropertyTax;
+      e.aPayment = e.mPayment * 12;
+    });
+    return rawData;
+  };
+  module.mathObj = mathObj;
+}(window));
