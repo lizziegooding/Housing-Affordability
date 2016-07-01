@@ -7,6 +7,7 @@
     $('iframe').show();
     $('#compareContent').show();
     charting.draw(charting.salaryChart);
+    // charting.myChart.data.datasets.data[2].backgroundColor = '#EB7F00';
   };
 
   module.compareController = compareController;

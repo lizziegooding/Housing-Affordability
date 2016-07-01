@@ -126,14 +126,14 @@
     charting.myChart = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: ['Median Household Income', 'Yearly Earnings At Minimum Wage', 'Your Income'],
+        labels: ['Median Household Income', 'Annual Earnings at Federal Minimum Wage', 'Your Annual Salary'],
         datasets: [{
-          label: 'Dollar Amount',
-          backgroundColor: '#EB7F00',
-          borderColor: 'black',
+          label: 'Salary',
+          backgroundColor: '#225378',
+          borderColor: '#225378',
           borderWidth: 1,
-          hoverBackgroundColor: '#1695A3',
-          hoverBorderColor: 'black',
+          hoverBackgroundColor: '#EB7F00',
+          hoverBorderColor: '#EB7F00',
           data: data,
         }]
       },
