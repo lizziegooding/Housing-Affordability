@@ -106,7 +106,7 @@
    <div class="modal-content">
      <div class="modal-header">
        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-       <h1>How you compare chart modal</h1>
+       <h1>Median Home Values by County</h1>
      </div>
      <div class="modal-body">
        <div id="canvasHolder"></div>
@@ -202,17 +202,17 @@
       –––––––––––––––––––––––––––––––––––––––––––––––––– -->
       <section class="tab-content" id="compareContent">
         <h3>How You Compare</h3>
-        <p>blah blah blah</p>
-
+        <br />
+        <h4>Salary</h4>
+        <p>Here's how your salary compares to the national median household income and annual earnings based on the federal minimum wage.
+        <canvas id="canvas" width="" height=""></canvas>
+        <br />
+        <h4>Home Value</h4>
+        <p>Interested in how the cost of a single family home in your county compares to others in your state? Select a state below for a county-by-county view of the median home value.</p>
         <select id='stateSelect'>
           <option>--Select State--</option>
         </select>
-
         <button id='button'>Select State</button>
-
-        <canvas id="canvas" width="" height=""></canvas>
-
-
       </section>
 
       <!-- Afford Tab Content
