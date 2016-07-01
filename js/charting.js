@@ -15,7 +15,7 @@
         label: 'Home Prices',
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
+        backgroundColor: '#EB7F00',
         borderColor: 'rgba(75,192,192,1)',
         borderCapStyle: 'butt',
         borderDash: [],
@@ -34,6 +34,7 @@
       }
     ]
   };
+  // 'rgba(75,192,192,0.4)'
 
   charting.countyLabels = [];
   charting.countyData = [];
@@ -103,7 +104,7 @@
       options: {
         title: {
           display: true,
-          text: 'Median Home Values by County'
+          text: 'Mouse Over the Chart to View County Specifics'
         }
       }
     });
