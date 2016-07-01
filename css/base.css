@@ -6,10 +6,7 @@ iframe {
   height: 100%;
   width: 100%;
   z-index: -1
-  /*position: absolute;  needs to be deleted*/
 }
-
-/*FROM THE ORIGINAL CODE*/
 
 /* Single Page App Content Display
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -29,7 +26,7 @@ iframe {
 #info {
   background-color: #fff;
   height: 100%;
-  opacity: 0.90;
+  opacity: 0.95;
   z-index: 99;
   position: relative;
 }

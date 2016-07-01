@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-/* Legend
+/* Map Legend
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .legend-scale ul {
   padding: 0;
@@ -28,6 +28,7 @@ ul.legend-labels li span {
 .legend-source {
   font-size: 70%;
   color: #999;
+  padding-bottom: 0.75rem;
   }
 
 /* Affordability Sliders
